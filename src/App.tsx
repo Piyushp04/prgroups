@@ -28,7 +28,6 @@ export const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState<string>(getInitialPath());
   const [displayPath, setDisplayPath] = useState<string>(getInitialPath());
   const [pageMotion, setPageMotion] = useState<'in' | 'out'>('in');
-  const [scrollProgress, setScrollProgress] = useState(0);
   const lenisRef = useRef<Lenis | null>(null);
   const transitionTimer = useRef<number | null>(null);
   const pendingPath = useRef<string>(getInitialPath());
