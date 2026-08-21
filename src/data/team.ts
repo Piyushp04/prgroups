@@ -3,27 +3,45 @@ import { DISCIPLINES as RAW_DISCIPLINES } from './disciplines';
 
 export const FOUNDER_DATA = {
   name: "Pratyush Kumar Jha",
-  title: "Founder & CEO, PR Groups",
+  title: "Founder & Sole Proprietor, PR Groups",
   headline: "BUILDING AT THE INTERSECTION OF CREATIVITY AND TECHNOLOGY.",
-  bio: "Pratyush Kumar Jha is the Founder & CEO of PR Groups, leading a multidisciplinary creative-technology venture focused on brand transformation, digital experiences, intelligent automation and emerging technology. His approach combines creative direction with technology-led thinking, with an emphasis on building distinctive systems and experiences that help ambitious businesses communicate, operate and grow in a digital-first world.",
+  bio: "Pratyush Kumar Jha is the Founder & Sole Proprietor of PR Groups, leading a multidisciplinary creative-technology company focused on brand transformation, digital experiences, intelligent automation and emerging technology. His approach combines creative direction with technology-led thinking, with an emphasis on building distinctive systems and experiences that help ambitious businesses communicate, operate and grow in a digital-first world.",
   location: "Bangalore, Karnataka, India",
   imagePlaceholder: "/assets/images/founder-placeholder.jpg",
 };
+
+export const OPERATIONAL_ROLES_DISCLAIMER = "Important: These are internal operational roles within the PR Projects Studio/PR Group’s setup and do not imply a separate partnership, LLP, corporation, or independent ownership structure. Pratyush Kumar Jha remains the sole proprietor.";
 
 export const PEOPLE_DATA: TeamMember[] = [
   {
     id: "pratyush-kumar-jha",
     name: "Pratyush Kumar Jha",
-    role: "Founder & CEO",
-    bio: "Leads strategic vision, creative direction, and creative-technology architecture across all active disciplines.",
+    role: "Founder & Sole Proprietor",
+    bio: "Leads strategic vision, creative direction, and creative-technology architecture across all active practices and client engagements.",
+    location: "Bangalore, Karnataka, India",
+    isLeadership: true,
+  },
+  {
+    id: "nisha-jha",
+    name: "Nisha Jha",
+    role: "Co-founder",
+    bio: "Drives internal operational excellence, organizational planning, and collaborative practice governance across multi-squad initiatives.",
     location: "Bangalore, Karnataka, India",
     isLeadership: true,
   },
   {
     id: "prerna-chaudhary",
     name: "Prerna Chaudhary",
-    role: "Co-Founder",
-    bio: "Oversees multidisciplinary operations, strategic partnerships, and organizational growth.",
+    role: "Co-founder",
+    bio: "Oversees multidisciplinary operations, strategic client relationships, and cross-functional organizational growth.",
+    location: "Bangalore, Karnataka, India",
+    isLeadership: true,
+  },
+  {
+    id: "devesh-kumar-jha",
+    name: "Devesh Kumar Jha",
+    role: "Chief Financial Officer (CFO)",
+    bio: "Manages fiscal governance, statutory compliance, financial planning, project budgeting, and commercial contract structures.",
     location: "Bangalore, Karnataka, India",
     isLeadership: true,
   },
@@ -31,14 +49,14 @@ export const PEOPLE_DATA: TeamMember[] = [
     id: "diya-pandey",
     name: "Diya Pandey",
     role: "Project Manager",
-    bio: "Directs client communication pipelines, sprint timelines, and multidisciplinary execution squads.",
+    bio: "Directs client communication pipelines, sprint timelines, deliverable milestones, and multidisciplinary execution squads.",
     location: "Bangalore, Karnataka, India",
   },
   {
-    id: "devesh-kumar-jha",
-    name: "Devesh Kumar Jha",
-    role: "[Title to confirm]",
-    bio: "Practice specialist collaborating across digital technology and creative execution.",
+    id: "piyush-pathak",
+    name: "Piyush Pathak",
+    role: "Head of Technology & Web Operations",
+    bio: "Leads technical infrastructure, WebGL 3D graphics engineering, high-performance web systems, and custom automation architecture.",
     location: "Bangalore, Karnataka, India",
   },
 ];

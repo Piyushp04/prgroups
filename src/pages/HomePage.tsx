@@ -8,6 +8,7 @@ import { SpatialDeviceScene } from '../components/SpatialDeviceScene';
 import { ThreeHeroScene } from '../components/ThreeHeroScene';
 import { InstagramReelPhone } from '../components/InstagramReelPhone';
 import { CaseStudy, InsightArticle } from '../types';
+import { useCurrency } from '../utils/currency';
 import {
   ArrowUpRight,
   ArrowRight,
@@ -27,7 +28,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
   const [selectedArticle, setSelectedArticle] = useState<InsightArticle | null>(null);
   const [activeDisciplineTab, setActiveDisciplineTab] = useState(DISCIPLINES[0].id);
   const [selectedWorkFilter, setSelectedWorkFilter] = useState('ALL');
-  const [currency, setCurrency] = useState<'INR' | 'USD'>('INR');
+  const [currency, setCurrency] = useCurrency();
 
   const activeDiscipline = DISCIPLINES.find((d) => d.id === activeDisciplineTab) || DISCIPLINES[0];
 
@@ -302,7 +303,15 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                     onClick={() => setSelectedCaseStudy(cs)}
                   >
                     <div className="agency-case-img-wrap">
-                      <img src={cs.heroImage} alt={cs.title} className="agency-case-img" />
+                      <img
+                        src={cs.heroImage}
+                        alt={cs.title}
+                        className="agency-case-img"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.src = 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80';
+                        }}
+                      />
                       <div
                         style={{
                           position: 'absolute',
@@ -990,11 +999,11 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                   </button>
 
                   <a
-                    href="mailto:contact@prgroups.in"
+                    href="mailto:support@prgroups.in"
                     className="btn-pill btn-pill-outline"
                     style={{ fontSize: '1.0625rem', padding: '1rem 2.25rem' }}
                   >
-                    <span>contact@prgroups.in</span>
+                    <span>support@prgroups.in</span>
                   </a>
                 </div>
               </div>

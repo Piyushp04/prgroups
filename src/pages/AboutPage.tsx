@@ -184,24 +184,26 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigate }) => {
           style={{
             backgroundColor: '#07070c',
             border: '1px solid var(--border-medium)',
-            borderRadius: '32px',
-            padding: 'clamp(2rem, 5vw, 3.5rem)',
+            borderRadius: '28px',
+            padding: 'clamp(1.5rem, 4vw, 3.5rem)',
             boxShadow: '0 25px 60px rgba(0, 0, 0, 0.7)',
           }}
         >
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'minmax(220px, 0.8fr) minmax(300px, 1.2fr) minmax(260px, 0.9fr)',
-              gap: '3rem',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '2.5rem',
               alignItems: 'center',
             }}
           >
             <div
               style={{
-                minHeight: '360px',
+                width: '100%',
+                maxHeight: '400px',
+                minHeight: '280px',
                 border: '1px solid var(--border-subtle)',
-                borderRadius: '22px',
+                borderRadius: '20px',
                 overflow: 'hidden',
                 backgroundColor: '#111118',
                 boxShadow: '0 18px 45px rgba(0, 0, 0, 0.55)',
@@ -209,10 +211,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigate }) => {
             >
               <img
                 src={LEADERSHIP.imagePlaceholder}
-                alt={`${LEADERSHIP.name}, Founder and CEO of PR Groups`}
-                style={{ width: '100%', height: '100%', minHeight: '360px', objectFit: 'cover', display: 'block' }}
+                alt={`${LEADERSHIP.name}, Founder and Sole Proprietor of PR Groups`}
+                style={{ width: '100%', height: '100%', minHeight: '280px', maxHeight: '400px', objectFit: 'cover', display: 'block' }}
                 onError={(event) => {
-                  event.currentTarget.style.display = 'none';
+                  event.currentTarget.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80';
                 }}
               />
             </div>
@@ -227,7 +229,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigate }) => {
               <h2
                 style={{
                   fontFamily: 'var(--font-display)',
-                  fontSize: '2.25rem',
+                  fontSize: 'clamp(1.85rem, 3.5vw, 2.5rem)',
                   fontWeight: 800,
                   color: 'var(--text-primary)',
                   marginBottom: '0.25rem',
@@ -243,7 +245,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigate }) => {
                   marginBottom: '1.25rem',
                 }}
               >
-                {LEADERSHIP.role}
+                Founder & Sole Proprietor, PR Groups
               </p>
               <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.65, marginBottom: '1.75rem' }}>
                 {LEADERSHIP.bio}

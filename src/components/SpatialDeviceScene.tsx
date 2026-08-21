@@ -8,6 +8,7 @@ import {
   Palette,
   Activity
 } from 'lucide-react';
+import { useCurrency } from '../utils/currency';
 
 interface SpatialDeviceSceneProps {
   onNavigate: (path: string) => void;
@@ -16,6 +17,7 @@ interface SpatialDeviceSceneProps {
 export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
   onNavigate,
 }) => {
+  const [currency] = useCurrency();
   const [currentStage, setCurrentStage] = useState(1);
   const [activeAura, setActiveAura] = useState<'violet' | 'noir' | 'cyan' | 'emerald' | 'amber'>('violet');
   const [isHovered, setIsHovered] = useState(false);
@@ -172,7 +174,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
     { id: 1, label: 'Spatial Core', tag: '3D ARCHITECTURE' },
     { id: 2, label: 'Systems Engine', tag: 'AUTONOMOUS SQUADS' },
     { id: 3, label: 'Intelligence Core', tag: 'NEURAL WORKFLOWS' },
-    { id: 4, label: 'Market Impact', tag: '$120M+ DELIVERED' },
+    { id: 4, label: 'Market Impact', tag: currency === 'INR' ? '₹1,000 CR+ DELIVERED' : '$120M+ DELIVERED' },
     { id: 5, label: 'Commission', tag: 'EXECUTE VISION' },
   ];
 
@@ -205,17 +207,18 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
     >
       {/* 3D FLOATING SPATIAL TABLET CHASSIS */}
       <div
+        className="spatial-tablet-chassis"
         style={{
           width: '100%',
           maxWidth: '980px',
-          height: 'clamp(460px, 62vh, 580px)',
+          height: 'clamp(420px, 60vh, 580px)',
           backgroundColor: '#07070c',
-          borderRadius: '40px',
-          border: '4px solid rgba(45, 45, 65, 0.85)',
+          borderRadius: 'clamp(24px, 5vw, 40px)',
+          border: '3px solid rgba(45, 45, 65, 0.85)',
           boxShadow: `
-            0 45px 120px -25px rgba(0, 0, 0, 0.98),
-            0 0 60px var(--accent-glow-primary),
-            inset 0 0 8px rgba(255, 255, 255, 0.4),
+            0 35px 90px -20px rgba(0, 0, 0, 0.95),
+            0 0 50px var(--accent-glow-primary),
+            inset 0 0 8px rgba(255, 255, 255, 0.3),
             inset 0 -4px 12px rgba(0, 0, 0, 0.9)
           `,
           position: 'relative',
@@ -281,8 +284,8 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: 'var(--accent-cyan)', boxShadow: '0 0 10px var(--accent-cyan)' }} />
-            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '-0.02em', fontSize: '0.95rem' }}>
-              PR GROUPS SPATIAL ENGINE
+            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '0.02em', fontSize: '0.9rem' }}>
+              BUILDING BRANDS. CREATING IMPACT
             </span>
           </div>
 
@@ -623,7 +626,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
             >
               <div>
                 <div style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--text-primary)' }}>
-                  $120M+
+                  {currency === 'INR' ? '₹1,000 Cr+' : '$120M+'}
                 </div>
                 <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
                   RAISED BY CLIENTS

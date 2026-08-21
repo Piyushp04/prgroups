@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronDown, Menu, X, ArrowUpRight, Compass, BookOpen } from 'lucide-react';
+import { useCurrency } from '../utils/currency';
 
 interface NavbarProps {
   currentPath: string;
@@ -7,6 +8,7 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ currentPath, navigate }) => {
+  const [currency, setCurrency] = useCurrency();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -590,11 +592,61 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, navigate }) => {
             </div>
           </nav>
 
-          {/* Right Header Area: Aura Theme Switcher + Menu + Pill CTA Button */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          {/* Right Header Area: Currency Switcher + Aura Switcher + Menu + Pill CTA Button */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(0.4rem, 2vw, 0.65rem)' }}>
             
-            {/* Quick Aura Mood Switcher */}
+            {/* Quick Currency Switcher (INR / USD) */}
             <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid var(--border-subtle)',
+                borderRadius: '999px',
+                padding: '2px',
+                gap: '2px',
+              }}
+              title="Switch currency between INR (₹) and USD ($)"
+            >
+              <button
+                onClick={() => setCurrency('INR')}
+                style={{
+                  padding: '3px 8px',
+                  borderRadius: '999px',
+                  fontSize: '0.72rem',
+                  fontFamily: 'var(--font-mono)',
+                  fontWeight: 700,
+                  backgroundColor: currency === 'INR' ? 'var(--accent-cyan)' : 'transparent',
+                  color: currency === 'INR' ? '#000' : 'var(--text-secondary)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                ₹ INR
+              </button>
+              <button
+                onClick={() => setCurrency('USD')}
+                style={{
+                  padding: '3px 8px',
+                  borderRadius: '999px',
+                  fontSize: '0.72rem',
+                  fontFamily: 'var(--font-mono)',
+                  fontWeight: 700,
+                  backgroundColor: currency === 'USD' ? 'var(--accent-cyan)' : 'transparent',
+                  color: currency === 'USD' ? '#000' : 'var(--text-secondary)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                $ USD
+              </button>
+            </div>
+
+            {/* Quick Aura Mood Switcher (Hidden on narrow mobile to keep header clean) */}
+            <div
+              className="nav-aura-switcher"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -617,20 +669,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, navigate }) => {
                   key={a.id}
                   onClick={() => document.documentElement.setAttribute('data-aura', a.id)}
                   style={{
-                    width: '12px',
-                    height: '12px',
+                    width: '11px',
+                    height: '11px',
                     borderRadius: '50%',
                     backgroundColor: a.bg || a.color,
                     border: a.border || 'none',
                     cursor: 'pointer',
                     transition: 'transform 0.2s ease, box-shadow 0.2s ease',
                     boxShadow: `0 0 6px ${a.color}80`,
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'scale(1.4)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'scale(1)';
                   }}
                   aria-label={`Switch to ${a.name} aura`}
                 />
@@ -642,17 +688,18 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, navigate }) => {
               className="btn-circle"
               aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
               aria-expanded={mobileMenuOpen}
+              style={{ width: '40px', height: '40px' }}
             >
               {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
 
             <button
               onClick={() => handleNavClick('/book-a-project')}
-              className="btn-pill btn-pill-light"
-              style={{ padding: '0.6rem 1.35rem', fontSize: '0.875rem', fontWeight: 700 }}
+              className="btn-pill btn-pill-light nav-cta-btn"
+              style={{ padding: '0.55rem 1.15rem', fontSize: '0.825rem', fontWeight: 700 }}
             >
-              <span>Start a project</span>
-              <ArrowUpRight size={15} />
+              <span className="nav-cta-text">Start a project</span>
+              <ArrowUpRight size={14} />
             </button>
           </div>
         </div>
@@ -669,7 +716,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, navigate }) => {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
-            padding: '7rem 2rem 2.5rem 2rem',
+            padding: '6rem 1.5rem 2rem 1.5rem',
+            overflowY: 'auto',
             animation: 'fadeIn 0.25s ease-out forwards',
           }}
           role="dialog"
@@ -677,17 +725,18 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, navigate }) => {
           aria-label="Navigation Menu"
         >
           {/* Navigation Links */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', letterSpacing: '0.06em', textTransform: 'uppercase' }}>
-              Menu
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.5rem', fontFamily: 'var(--font-mono)' }}>
+              DIRECTORY
             </span>
             {[
               { label: 'Home', path: '/' },
-              { label: 'About', path: '/about' },
-              { label: 'Works', path: '/work' },
-              { label: 'Services', path: '/services' },
-              { label: 'People', path: '/people' },
-              { label: 'Resources', path: '/insights' },
+              { label: 'Selected Work', path: '/work' },
+              { label: 'Services & Disciplines', path: '/services' },
+              { label: 'About Agency', path: '/about' },
+              { label: 'Leadership & Team', path: '/people' },
+              { label: 'Insights & Perspectives', path: '/insights' },
+              { label: 'Legal & Privacy Disclosures', path: '/legal' },
             ].map((item) => {
               const isActive = currentPath === item.path;
               return (
@@ -696,20 +745,20 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, navigate }) => {
                   onClick={() => handleNavClick(item.path)}
                   style={{
                     display: 'flex',
-                    alignItems: 'baseline',
+                    alignItems: 'center',
                     justifyContent: 'space-between',
                     textAlign: 'left',
                     fontFamily: 'var(--font-display)',
-                    fontSize: 'clamp(1.75rem, 6vw, 2.5rem)',
+                    fontSize: 'clamp(1.25rem, 5vw, 1.85rem)',
                     fontWeight: 700,
                     letterSpacing: '-0.02em',
-                    color: isActive ? 'var(--text-primary)' : 'var(--text-secondary)',
-                    padding: '0.35rem 0',
+                    color: isActive ? 'var(--accent-cyan)' : 'var(--text-primary)',
+                    padding: '0.65rem 0',
                     borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
                   }}
                 >
                   <span>{item.label}</span>
-                  <ArrowUpRight size={20} color="var(--text-muted)" />
+                  <ArrowUpRight size={18} color={isActive ? 'var(--accent-cyan)' : 'var(--text-muted)'} />
                 </button>
               );
             })}
@@ -720,26 +769,66 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, navigate }) => {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: '1.25rem',
-              paddingTop: '2rem',
+              gap: '1rem',
+              paddingTop: '1.5rem',
+              marginTop: '1.5rem',
               borderTop: '1px solid var(--border-subtle)',
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                Bangalore, Karnataka, India
-              </span>
-              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>CURRENCY:</span>
+                <div style={{ display: 'inline-flex', backgroundColor: 'rgba(255, 255, 255, 0.05)', borderRadius: '999px', padding: '2px', border: '1px solid var(--border-subtle)' }}>
+                  <button
+                    onClick={() => setCurrency('INR')}
+                    style={{
+                      padding: '4px 10px',
+                      borderRadius: '999px',
+                      fontSize: '0.75rem',
+                      fontFamily: 'var(--font-mono)',
+                      fontWeight: 700,
+                      backgroundColor: currency === 'INR' ? 'var(--accent-cyan)' : 'transparent',
+                      color: currency === 'INR' ? '#000' : 'var(--text-secondary)',
+                      border: 'none',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    ₹ INR
+                  </button>
+                  <button
+                    onClick={() => setCurrency('USD')}
+                    style={{
+                      padding: '4px 10px',
+                      borderRadius: '999px',
+                      fontSize: '0.75rem',
+                      fontFamily: 'var(--font-mono)',
+                      fontWeight: 700,
+                      backgroundColor: currency === 'USD' ? 'var(--accent-cyan)' : 'transparent',
+                      color: currency === 'USD' ? '#000' : 'var(--text-secondary)',
+                      border: 'none',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    $ USD
+                  </button>
+                </div>
+              </div>
+              <span style={{ fontSize: '0.8rem', color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)' }}>
                 prgroups.in
               </span>
+            </div>
+
+            <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+              Bangalore Studio • Darbhanga GST
             </div>
 
             <button
               onClick={() => handleNavClick('/book-a-project')}
               className="btn-pill btn-pill-light"
-              style={{ width: '100%', padding: '1rem', fontSize: '1rem' }}
+              style={{ width: '100%', padding: '0.85rem', fontSize: '0.95rem' }}
             >
-              <span>Book a call</span>
+              <span>Book Strategy Call</span>
+              <ArrowUpRight size={16} />
             </button>
           </div>
         </div>
@@ -750,6 +839,19 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, navigate }) => {
         @media (min-width: 960px) {
           .desktop-nav {
             display: flex !important;
+          }
+        }
+        @media (max-width: 580px) {
+          .nav-aura-switcher {
+            display: none !important;
+          }
+        }
+        @media (max-width: 420px) {
+          .nav-cta-text {
+            display: none !important;
+          }
+          .nav-cta-btn {
+            padding: 0.55rem 0.75rem !important;
           }
         }
       `}</style>

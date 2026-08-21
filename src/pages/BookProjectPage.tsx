@@ -10,11 +10,14 @@ import {
   Check
 } from 'lucide-react';
 
+import { useCurrency } from '../utils/currency';
+
 interface BookProjectPageProps {
   navigate: (path: string) => void;
 }
 
 export const BookProjectPage: React.FC<BookProjectPageProps> = ({ navigate }) => {
+  const [currency, setCurrency] = useCurrency();
   const [step, setStep] = useState(1);
   const [selectedDisciplines, setSelectedDisciplines] = useState<string[]>([DISCIPLINES[0].id, DISCIPLINES[1].id]);
   const [selectedTimeline, setSelectedTimeline] = useState('4-8-weeks');
@@ -49,12 +52,21 @@ export const BookProjectPage: React.FC<BookProjectPageProps> = ({ navigate }) =>
     { id: 'ongoing-retainer', label: 'Embedded Retainer', desc: 'Continuous creative technology & AI leadership' },
   ];
 
-  const budgetTiers = [
-    { id: 'tier-pilot', label: '$15,000 – $25,000', sub: 'Targeted single-discipline sprint' },
-    { id: 'tier-growth', label: '$25,000 – $60,000', sub: 'Multidisciplinary flagship project' },
-    { id: 'tier-enterprise', label: '$60,000 – $150,000', sub: 'Comprehensive enterprise system build' },
-    { id: 'tier-custom', label: '$150,000+', sub: 'Global multi-product incubation' },
+  const budgetTiersINR = [
+    { id: 'tier-pilot', label: '₹50,000 – ₹1,50,000', sub: 'Targeted single-discipline sprint' },
+    { id: 'tier-growth', label: '₹1,50,000 – ₹4,00,000', sub: 'Multidisciplinary flagship build' },
+    { id: 'tier-enterprise', label: '₹4,00,000 – ₹10,00,000', sub: 'Comprehensive enterprise system' },
+    { id: 'tier-custom', label: '₹10,00,000+', sub: 'Ongoing retained studio partner' },
   ];
+
+  const budgetTiersUSD = [
+    { id: 'tier-pilot', label: '$1,500 – $5,000', sub: 'Targeted single-discipline sprint' },
+    { id: 'tier-growth', label: '$5,000 – $15,000', sub: 'Multidisciplinary flagship project' },
+    { id: 'tier-enterprise', label: '$15,000 – $50,000', sub: 'Comprehensive enterprise system build' },
+    { id: 'tier-custom', label: '$50,000+', sub: 'Global multi-product incubation' },
+  ];
+
+  const budgetTiers = currency === 'INR' ? budgetTiersINR : budgetTiersUSD;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -216,7 +228,7 @@ export const BookProjectPage: React.FC<BookProjectPageProps> = ({ navigate }) =>
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(4, 1fr)',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
                 gap: '0.75rem',
                 paddingBottom: '2rem',
                 marginBottom: '2.5rem',
@@ -442,13 +454,65 @@ export const BookProjectPage: React.FC<BookProjectPageProps> = ({ navigate }) =>
             {/* STEP 3: Select Budget */}
             {step === 3 && (
               <div>
-                <div style={{ marginBottom: '1.5rem' }}>
-                  <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
-                    Estimated Project Investment Tier
-                  </h2>
-                  <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)' }}>
-                    Helping us allocate appropriate engineering and brand architecture bandwidth.
-                  </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
+                  <div>
+                    <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.35rem' }}>
+                      Estimated Project Investment Tier
+                    </h2>
+                    <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)' }}>
+                      Helping us allocate appropriate engineering and brand architecture bandwidth.
+                    </p>
+                  </div>
+
+                  {/* Currency Switcher */}
+                  <div
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                      borderRadius: '999px',
+                      padding: '0.25rem',
+                      border: '1px solid var(--border-subtle)',
+                      gap: '0.25rem',
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setCurrency('INR')}
+                      style={{
+                        padding: '0.4rem 0.9rem',
+                        borderRadius: '999px',
+                        fontSize: '0.8rem',
+                        fontFamily: 'var(--font-mono)',
+                        fontWeight: 700,
+                        backgroundColor: currency === 'INR' ? 'var(--accent-cyan)' : 'transparent',
+                        color: currency === 'INR' ? '#000' : 'var(--text-secondary)',
+                        border: 'none',
+                        cursor: 'pointer',
+                        transition: 'all 0.2s ease',
+                      }}
+                    >
+                      ₹ INR (India)
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setCurrency('USD')}
+                      style={{
+                        padding: '0.4rem 0.9rem',
+                        borderRadius: '999px',
+                        fontSize: '0.8rem',
+                        fontFamily: 'var(--font-mono)',
+                        fontWeight: 700,
+                        backgroundColor: currency === 'USD' ? 'var(--accent-cyan)' : 'transparent',
+                        color: currency === 'USD' ? '#000' : 'var(--text-secondary)',
+                        border: 'none',
+                        cursor: 'pointer',
+                        transition: 'all 0.2s ease',
+                      }}
+                    >
+                      $ USD (Global)
+                    </button>
+                  </div>
                 </div>
 
                 <div

@@ -85,12 +85,12 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
                 <ArrowUpRight size={16} />
               </button>
               <a
-                href="mailto:contact@prgroups.in"
+                href="mailto:support@prgroups.in"
                 className="btn-pill btn-pill-outline"
                 style={{ fontSize: '0.9rem', padding: '0.75rem 1.6rem' }}
               >
                 <Mail size={16} />
-                <span>contact@prgroups.in</span>
+                <span>support@prgroups.in</span>
               </a>
             </div>
           </div>
@@ -227,12 +227,13 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
         </div>
 
         {/* Middle Section: Clean Statutory Entity Disclosures */}
+        {/* Middle Section: Clean Statutory Entity Disclosures */}
         <div
           style={{
             padding: '2.5rem 0',
             borderBottom: '1px solid var(--border-subtle)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             gap: '2rem',
             backgroundColor: 'rgba(255, 255, 255, 0.015)',
             margin: '0 -1.5rem',
@@ -252,10 +253,10 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               Public Brand: <strong style={{ color: 'var(--text-primary)' }}>{COMPANY_INFO.brandName}</strong>
             </p>
             <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
-              Founder & CEO: <strong style={{ color: 'var(--text-primary)' }}>{COMPANY_INFO.founderAndCEO}</strong>
+              Founder & Sole Proprietor: <strong style={{ color: 'var(--text-primary)' }}>{COMPANY_INFO.founderAndCEO}</strong>
             </p>
             <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
-              Office: {COMPANY_INFO.studioOffice.address}
+              Operational Studio: {COMPANY_INFO.studioOffice.address}
             </p>
           </div>
 
@@ -271,7 +272,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               Legal Entity: <strong style={{ color: 'var(--text-primary)' }}>{COMPANY_INFO.legalEntity}</strong>
             </p>
             <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
-              Registered Address: {COMPANY_INFO.registeredOffice.address}
+              Registered Address (GST / Legal): {COMPANY_INFO.registeredOffice.address}
             </p>
             <p style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', marginTop: '0.25rem' }}>
               Official Domain: <a href="https://prgroups.in" target="_blank" rel="noreferrer" style={{ color: 'var(--accent-cyan)' }}>prgroups.in</a>
@@ -279,15 +280,29 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
           </div>
         </div>
 
-        {/* Bottom Section: Copyright */}
+        {/* Discreet Best-Effort Performance Disclaimer Footnote */}
         <div
           style={{
-            paddingTop: '2.5rem',
+            padding: '1.5rem 0',
+            borderBottom: '1px solid var(--border-subtle)',
+            fontSize: '0.72rem',
+            lineHeight: 1.65,
+            color: 'var(--text-muted)',
+            opacity: 0.7,
+          }}
+        >
+          {COMPANY_INFO.disclaimer.bestEffortNote}
+        </div>
+
+        {/* Bottom Section: Copyright & Legal Policy Links */}
+        <div
+          style={{
+            paddingTop: '2rem',
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-between',
             alignItems: 'center',
-            gap: '1.5rem',
+            gap: '1.25rem',
             fontFamily: 'var(--font-mono)',
             fontSize: '0.75rem',
             color: 'var(--text-muted)',
@@ -297,7 +312,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
             Registered under {COMPANY_INFO.legalEntity}.
           </div>
 
-          <div style={{ display: 'flex', gap: '1.5rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem' }}>
             <button
               onClick={() => navigate('/legal')}
               style={{ color: 'var(--text-muted)', textDecoration: 'underline' }}
@@ -308,15 +323,27 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               onClick={() => navigate('/legal')}
               style={{ color: 'var(--text-muted)', textDecoration: 'underline' }}
             >
-              Privacy Policy
+              Privacy Policy (DPDP)
+            </button>
+            <button
+              onClick={() => navigate('/legal')}
+              style={{ color: 'var(--text-muted)', textDecoration: 'underline' }}
+            >
+              Refund & Cancellation
+            </button>
+            <button
+              onClick={() => navigate('/legal')}
+              style={{ color: 'var(--text-muted)', textDecoration: 'underline' }}
+            >
+              Grievance Redressal
             </button>
           </div>
         </div>
 
         <div
           style={{
-            paddingTop: '1.75rem',
-            marginTop: '1.5rem',
+            paddingTop: '1.5rem',
+            marginTop: '1.25rem',
             borderTop: '1px solid var(--border-subtle)',
             fontFamily: 'var(--font-mono)',
             fontSize: '0.72rem',
@@ -324,7 +351,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
             letterSpacing: '0.02em',
           }}
         >
-          © 2026 PR Groups. All Rights Reserved
+          © 2026 PR Groups ({COMPANY_INFO.legalEntity}). All Rights Reserved.
         </div>
 
       </div>

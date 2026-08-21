@@ -52,7 +52,7 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '1.5rem',
+        padding: 'clamp(0.75rem, 2.5vw, 1.5rem)',
         animation: 'fadeIn 0.25s ease-out forwards',
       }}
       onClick={onClose}
@@ -67,10 +67,10 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({
           maxHeight: '90vh',
           backgroundColor: '#0c0c10',
           border: '1px solid var(--border-medium)',
-          borderRadius: '24px',
+          borderRadius: 'clamp(18px, 4vw, 24px)',
           overflowY: 'auto',
           position: 'relative',
-          padding: 'clamp(1.75rem, 5vw, 3.5rem)',
+          padding: 'clamp(1.25rem, 4vw, 3.5rem)',
           boxShadow: '0 25px 60px rgba(0, 0, 0, 0.85)',
         }}
         onClick={(e) => e.stopPropagation()}
@@ -81,10 +81,11 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({
           className="btn-circle"
           style={{
             position: 'absolute',
-            top: '1.5rem',
-            right: '1.5rem',
-            width: '38px',
-            height: '38px',
+            top: '1rem',
+            right: '1rem',
+            width: '36px',
+            height: '36px',
+            zIndex: 10,
           }}
           aria-label="Close Article"
         >

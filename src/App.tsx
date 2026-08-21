@@ -10,17 +10,27 @@ import { PeoplePage } from './pages/PeoplePage';
 import { InsightsPage } from './pages/InsightsPage';
 import { BookProjectPage } from './pages/BookProjectPage';
 import { LegalPage } from './pages/LegalPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 export const App: React.FC = () => {
+  const validPaths = ['/', '/work', '/services', '/about', '/people', '/insights', '/book-a-project', '/legal', '/privacy', '/terms'];
+
   // Normalize initial route from window.location.pathname or fallback
   const getInitialPath = () => {
     const path = window.location.pathname.toLowerCase();
-    if (['/work', '/services', '/about', '/people', '/insights', '/book-a-project', '/legal', '/privacy', '/terms'].includes(path)) {
+    if (validPaths.includes(path)) {
       return path;
     }
     // Also check hash-based fallback (e.g. #/work)
     if (window.location.hash.startsWith('#/')) {
-      return window.location.hash.slice(1);
+      const hashPath = window.location.hash.slice(1).toLowerCase();
+      if (validPaths.includes(hashPath)) {
+        return hashPath;
+      }
+    }
+    // Return path directly to allow 404 renderer to catch invalid routes
+    if (path !== '/' && path !== '') {
+      return path;
     }
     return '/';
   };
@@ -127,6 +137,8 @@ export const App: React.FC = () => {
   // Render active page based on route
   const renderPage = () => {
     switch (displayPath) {
+      case '/':
+        return <HomePage navigate={navigate} />;
       case '/work':
         return <WorkPage navigate={navigate} />;
       case '/services':
@@ -143,9 +155,8 @@ export const App: React.FC = () => {
       case '/privacy':
       case '/terms':
         return <LegalPage navigate={navigate} />;
-      case '/':
       default:
-        return <HomePage navigate={navigate} />;
+        return <NotFoundPage navigate={navigate} />;
     }
   };
 

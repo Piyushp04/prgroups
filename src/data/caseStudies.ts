@@ -336,7 +336,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     baselineStatus: "OFFLINE TRADING UNIT",
     projectType: "REAL CLIENT",
     year: "2026",
-    heroImage: "https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=1200&q=80",
     headline: "Demonstrating filtration engineering through video showcases and driving 65 annual AMC contracts.",
     description: "Demonstration video shoot, press release distribution, official business listing, and search optimization.",
     summary: "PR Group produced commercial product demonstration videos and syndicated press announcements, acquiring 65 new recurring annual maintenance contracts.",

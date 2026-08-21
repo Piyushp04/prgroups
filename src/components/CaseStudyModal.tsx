@@ -73,14 +73,14 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
         style={{
           width: '100%',
           maxWidth: '920px',
-          maxHeight: '85vh',
+          maxHeight: '90vh',
           backgroundColor: '#0c0c10',
           border: '1px solid var(--border-medium)',
-          borderRadius: '28px',
+          borderRadius: 'clamp(18px, 4vw, 28px)',
           overflowY: 'auto',
           overscrollBehavior: 'contain',
           position: 'relative',
-          padding: 'clamp(1.75rem, 4vw, 3.25rem)',
+          padding: 'clamp(1.25rem, 4vw, 3.25rem)',
           boxShadow: '0 25px 70px rgba(0, 0, 0, 0.95), 0 0 35px var(--accent-glow-primary)',
         }}
         onClick={(e) => e.stopPropagation()}
@@ -91,10 +91,11 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
           className="btn-circle"
           style={{
             position: 'absolute',
-            top: '1.5rem',
-            right: '1.5rem',
-            width: '38px',
-            height: '38px',
+            top: '1rem',
+            right: '1rem',
+            width: '36px',
+            height: '36px',
+            zIndex: 10,
           }}
           aria-label="Close Case Study"
         >
@@ -209,7 +210,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
         <div
           style={{
             width: '100%',
-            height: '360px',
+            height: 'clamp(200px, 45vw, 360px)',
             borderRadius: '20px',
             overflow: 'hidden',
             marginBottom: '2.5rem',
@@ -226,6 +227,9 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
               height: '100%',
               objectFit: 'cover',
               display: 'block',
+            }}
+            onError={(e) => {
+              e.currentTarget.src = 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80';
             }}
           />
         </div>

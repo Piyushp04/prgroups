@@ -118,7 +118,15 @@ export const WorkPage: React.FC<WorkPageProps> = ({ navigate }) => {
               onClick={() => setSelectedCaseStudy(cs)}
             >
               <div className="agency-case-img-wrap">
-                <img src={cs.heroImage} alt={cs.title} className="agency-case-img" />
+                <img
+                  src={cs.heroImage}
+                  alt={cs.title}
+                  className="agency-case-img"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80';
+                  }}
+                />
                 
                 {/* Top Tags */}
                 <div

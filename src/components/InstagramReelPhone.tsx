@@ -365,6 +365,9 @@ export const InstagramReelPhone: React.FC = () => {
                   filter: idx === currentReelIndex ? 'brightness(1)' : 'brightness(0.7)',
                   transition: 'filter 0.4s ease',
                 }}
+                onError={(e) => {
+                  e.currentTarget.src = 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80';
+                }}
               />
 
               {/* Scrim Overlay */}

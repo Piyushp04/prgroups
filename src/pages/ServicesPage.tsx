@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { DISCIPLINES } from '../data/disciplines';
 import { RATE_CARD_MODULES, CELEBRATION_OFFER_INFO } from '../data/rateCard';
+import { useCurrency } from '../utils/currency';
 import { ArrowUpRight, Check, Cpu, Layers, Sparkles, Flame } from 'lucide-react';
 
 interface ServicesPageProps {
@@ -8,7 +9,7 @@ interface ServicesPageProps {
 }
 
 export const ServicesPage: React.FC<ServicesPageProps> = ({ navigate }) => {
-  const [currency, setCurrency] = useState<'INR' | 'USD'>('INR');
+  const [currency, setCurrency] = useCurrency();
 
   return (
     <div style={{ paddingTop: 'calc(var(--header-height) + 3rem)', paddingBottom: '6rem' }}>

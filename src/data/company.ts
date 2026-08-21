@@ -2,12 +2,12 @@ export const COMPANY_INFO = {
   brandName: "PR Groups",
   legalEntity: "PR Project's Studio, a Sole Proprietorship",
   founderAndCEO: "Pratyush Kumar Jha",
-  founderRole: "Founder & CEO",
+  founderRole: "Founder & Sole Proprietor",
   domain: "prgroups.in",
   
   // Locations strictly separated
   studioOffice: {
-    label: "Office Location",
+    label: "Operational Studio / Office",
     city: "Bangalore",
     state: "Karnataka",
     country: "India",
@@ -16,7 +16,7 @@ export const COMPANY_INFO = {
   },
   
   registeredOffice: {
-    label: "Registered Entity / Legal Jurisdiction",
+    label: "Registered Entity & GST Jurisdiction",
     entity: "PR Project's Studio, a Sole Proprietorship",
     city: "Darbhanga",
     state: "Bihar",
@@ -25,13 +25,20 @@ export const COMPANY_INFO = {
   },
 
   contact: {
-    primaryEmail: "Pratyush@prgroups.in",
-    generalEmail: "contact@prgroups.in",
+    primaryEmail: "support@prgroups.in",
+    generalEmail: "support@prgroups.in",
+    supportEmail: "support@prgroups.in",
+    founderEmail: "Pratyush@prgroups.in",
     projectInquiries: "projects@prgroups.in",
     pressInquiries: "press@prgroups.in",
     phone: "+91 7282943120",
     phoneDisplay: "+91 7282943120",
     website: "prgroups.in",
+  },
+
+  disclaimer: {
+    bestEffortNote: "Note: All services are delivered on a best-effort basis. No specific reach, impressions, engagement, followers, conversions, revenue, or performance outcome is guaranteed. Results may vary due to audience behaviour, market dynamics, platform algorithms, competition, and third-party policies. Past results do not constitute a guarantee of future performance.",
+    operationalRolesNote: "Important: These are internal operational roles within the PR Projects Studio/PR Group’s setup and do not imply a separate partnership, LLP, corporation, or independent ownership structure. Pratyush Kumar Jha remains the sole proprietor.",
   },
 
   hero: {
