@@ -105,8 +105,8 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
         {/* Top Badges */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '1.25rem' }}>
           {caseStudy.projectType === 'CONCEPT' ? (
-            <span className="badge-tag badge-tag--concept">
-              CONCEPT PROJECT
+            <span className="badge-tag badge-tag--concept" style={{ border: '1px solid #c77dff', color: '#c77dff' }}>
+              Concept Project — Created by PR Groups
             </span>
           ) : (
             <span className="badge-tag" style={{ borderColor: 'var(--accent-cyan)', color: 'var(--accent-cyan)' }}>

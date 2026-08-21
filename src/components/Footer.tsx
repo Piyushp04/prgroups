@@ -227,7 +227,6 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
         </div>
 
         {/* Middle Section: Clean Statutory Entity Disclosures */}
-        {/* Middle Section: Clean Statutory Entity Disclosures */}
         <div
           style={{
             padding: '2.5rem 0',
@@ -272,10 +271,29 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               Legal Entity: <strong style={{ color: 'var(--text-primary)' }}>{COMPANY_INFO.legalEntity}</strong>
             </p>
             <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
-              Registered Address (GST / Legal): {COMPANY_INFO.registeredOffice.address}
+              GST / Registered Address: {COMPANY_INFO.registeredOffice.address}
             </p>
             <p style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', marginTop: '0.25rem' }}>
               Official Domain: <a href="https://prgroups.in" target="_blank" rel="noreferrer" style={{ color: 'var(--accent-cyan)' }}>prgroups.in</a>
+            </p>
+          </div>
+
+          {/* Grievance & Privacy Redressal Channel */}
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+              <ShieldCheck size={16} color="var(--accent-cyan)" />
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)' }}>
+                DPDP & GRIEVANCE REDRESSAL
+              </span>
+            </div>
+            <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
+              Privacy Officer: <strong style={{ color: 'var(--text-primary)' }}>{COMPANY_INFO.grievance.officer}</strong>
+            </p>
+            <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
+              Grievance Email: <a href={`mailto:${COMPANY_INFO.grievance.email}`} style={{ color: 'var(--accent-cyan)' }}>{COMPANY_INFO.grievance.email}</a>
+            </p>
+            <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
+              SLA: Acknowledgement &lt; 48h • Resolution &lt; 30 days
             </p>
           </div>
         </div>
@@ -294,7 +312,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
           {COMPANY_INFO.disclaimer.bestEffortNote}
         </div>
 
-        {/* Bottom Section: Copyright & Legal Policy Links */}
+        {/* Bottom Section: Copyright & 7 Legal Policy Links */}
         <div
           style={{
             paddingTop: '2rem',
@@ -312,30 +330,54 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
             Registered under {COMPANY_INFO.legalEntity}.
           </div>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
             <button
-              onClick={() => navigate('/legal')}
-              style={{ color: 'var(--text-muted)', textDecoration: 'underline' }}
+              onClick={() => navigate('/privacy')}
+              style={{ color: 'var(--text-muted)', textDecoration: 'underline', background: 'none', border: 'none', cursor: 'pointer', padding: 0, font: 'inherit' }}
             >
-              Legal Disclosures & Terms
+              Privacy Policy (DPDP 2025)
             </button>
+            <span>•</span>
             <button
-              onClick={() => navigate('/legal')}
-              style={{ color: 'var(--text-muted)', textDecoration: 'underline' }}
+              onClick={() => navigate('/terms')}
+              style={{ color: 'var(--text-muted)', textDecoration: 'underline', background: 'none', border: 'none', cursor: 'pointer', padding: 0, font: 'inherit' }}
             >
-              Privacy Policy (DPDP)
+              Terms & Conditions
             </button>
+            <span>•</span>
             <button
-              onClick={() => navigate('/legal')}
-              style={{ color: 'var(--text-muted)', textDecoration: 'underline' }}
+              onClick={() => navigate('/refund')}
+              style={{ color: 'var(--text-muted)', textDecoration: 'underline', background: 'none', border: 'none', cursor: 'pointer', padding: 0, font: 'inherit' }}
             >
-              Refund & Cancellation
+              Refund Policy
             </button>
+            <span>•</span>
             <button
-              onClick={() => navigate('/legal')}
-              style={{ color: 'var(--text-muted)', textDecoration: 'underline' }}
+              onClick={() => navigate('/disclaimer')}
+              style={{ color: 'var(--text-muted)', textDecoration: 'underline', background: 'none', border: 'none', cursor: 'pointer', padding: 0, font: 'inherit' }}
+            >
+              Disclaimers
+            </button>
+            <span>•</span>
+            <button
+              onClick={() => navigate('/grievance')}
+              style={{ color: 'var(--text-muted)', textDecoration: 'underline', background: 'none', border: 'none', cursor: 'pointer', padding: 0, font: 'inherit' }}
             >
               Grievance Redressal
+            </button>
+            <span>•</span>
+            <button
+              onClick={() => navigate('/cookies')}
+              style={{ color: 'var(--text-muted)', textDecoration: 'underline', background: 'none', border: 'none', cursor: 'pointer', padding: 0, font: 'inherit' }}
+            >
+              Cookie Notice
+            </button>
+            <span>•</span>
+            <button
+              onClick={() => navigate('/copyright')}
+              style={{ color: 'var(--text-muted)', textDecoration: 'underline', background: 'none', border: 'none', cursor: 'pointer', padding: 0, font: 'inherit' }}
+            >
+              Copyright & IP
             </button>
           </div>
         </div>

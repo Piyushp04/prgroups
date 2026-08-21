@@ -324,7 +324,9 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                         }}
                       >
                         {cs.projectType === 'CONCEPT' ? (
-                          <span className="badge-tag badge-tag--concept">Concept</span>
+                          <span className="badge-tag badge-tag--concept" style={{ border: '1px solid #c77dff', color: '#c77dff' }}>
+                            Concept Project — Created by PR Groups
+                          </span>
                         ) : (
                           <span className="badge-tag" style={{ borderColor: 'var(--accent-cyan)', color: 'var(--accent-cyan)' }}>
                             Real Client

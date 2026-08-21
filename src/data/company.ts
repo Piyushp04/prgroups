@@ -18,10 +18,12 @@ export const COMPANY_INFO = {
   registeredOffice: {
     label: "Registered Entity & GST Jurisdiction",
     entity: "PR Project's Studio, a Sole Proprietorship",
+    proprietor: "Pratyush Kumar Jha",
+    pin: "846001",
     city: "Darbhanga",
     state: "Bihar",
     country: "India",
-    address: "Darbhanga, Bihar, India",
+    address: "Kadirabad Naka No. 2, Mansar Colony, Kadirabad, Darbhanga, Bihar – 846001",
   },
 
   contact: {
@@ -31,14 +33,43 @@ export const COMPANY_INFO = {
     founderEmail: "Pratyush@prgroups.in",
     projectInquiries: "projects@prgroups.in",
     pressInquiries: "press@prgroups.in",
+    grievanceEmail: "Grievance@prgroups.in",
     phone: "+91 7282943120",
     phoneDisplay: "+91 7282943120",
     website: "prgroups.in",
   },
 
+  grievance: {
+    officer: "Pratyush Kumar Jha",
+    designation: "Proprietor & Grievance / Privacy Officer",
+    email: "Grievance@prgroups.in",
+    acknowledgementSLA: "Within 48 business hours",
+    resolutionSLA: "Within 30 calendar days",
+  },
+
   disclaimer: {
-    bestEffortNote: "Note: All services are delivered on a best-effort basis. No specific reach, impressions, engagement, followers, conversions, revenue, or performance outcome is guaranteed. Results may vary due to audience behaviour, market dynamics, platform algorithms, competition, and third-party policies. Past results do not constitute a guarantee of future performance.",
-    operationalRolesNote: "Important: These are internal operational roles within the PR Projects Studio/PR Group’s setup and do not imply a separate partnership, LLP, corporation, or independent ownership structure. Pratyush Kumar Jha remains the sole proprietor.",
+    bestEffortNote: "Note: All services are delivered on a best-effort basis. No specific reach, impressions, engagement, followers, conversions, revenue, search ranking, or ad ROAS is guaranteed. Results may vary due to audience behaviour, market dynamics, platform algorithms (Meta, Google, YouTube, TikTok), and third-party policies. Past results do not constitute a guarantee of future performance.",
+    operationalRolesNote: "Important: All team titles designate internal operational leadership functions within the PR Project's Studio / PR Groups setup and do not imply a separate partnership, LLP, corporation, board of directors, or statutory corporate office structure. Pratyush Kumar Jha remains the sole proprietor.",
+    noGuaranteedMetrics: "PR Groups does not guarantee Instagram followers, viral reach, lead volume, search rank, sales conversion, or advertising ROAS.",
+    thirdPartyPlatformAutonomy: "Outcomes depend on independent platform algorithms (Meta, Google, YouTube, TikTok) and external user behavior beyond agency control.",
+    noProfessionalAdvice: "Site content does not constitute legal, tax, financial, or regulatory counsel.",
+    nearFormConsent: "By submitting this form, you acknowledge our Privacy Policy and consent to PR Groups processing your submitted details solely for responding to your enquiry and related business communications.",
+    refundTerms: {
+      within24Hours: "Within 24 Hours: Up to 50% advance refund permitted; 50% retained for administration and setup.",
+      after24Hours: "After 24 Hours: Advances are strictly non-refundable, subject to governing SOW and applicable law.",
+      thirdPartyOutlays: "Third-Party Outlays: Ad-spend, domain/hosting, production costs, and vendor retainers are 100% non-recoverable."
+    },
+    aiDisclaimer: "AI tools used in creative workflows are third-party systems. PR Groups provides human-reviewed creative workflows without guaranteeing exclusive copyrightability of pure AI outputs.",
+    clientAssetWarranty: "Clients must warrant that all logos, media, and text supplied are non-infringing, lawful, and fully owned or authorized.",
+    agencyIP: "PR Groups retains ownership of preliminary concepts, modular shader libraries, workflow scaffolds, and tools until full payment and contract execution.",
+    thirdPartyProcessors: [
+      "Vercel (Cloud Hosting Infrastructure)",
+      "Google Fonts (Font Delivery CDN)",
+      "Calendly (Consultation Scheduling)",
+      "WhatsApp Business API (Direct Communication)",
+      "Payment Gateways (Razorpay / Stripe)",
+      "AI API Endpoints (Cloud Inference Services)"
+    ]
   },
 
   hero: {

@@ -13,7 +13,23 @@ import { LegalPage } from './pages/LegalPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
 export const App: React.FC = () => {
-  const validPaths = ['/', '/work', '/services', '/about', '/people', '/insights', '/book-a-project', '/legal', '/privacy', '/terms'];
+  const validPaths = [
+    '/',
+    '/work',
+    '/services',
+    '/about',
+    '/people',
+    '/insights',
+    '/book-a-project',
+    '/legal',
+    '/privacy',
+    '/terms',
+    '/refund',
+    '/disclaimer',
+    '/grievance',
+    '/cookies',
+    '/copyright'
+  ];
 
   // Normalize initial route from window.location.pathname or fallback
   const getInitialPath = () => {
@@ -154,6 +170,11 @@ export const App: React.FC = () => {
       case '/legal':
       case '/privacy':
       case '/terms':
+      case '/refund':
+      case '/disclaimer':
+      case '/grievance':
+      case '/cookies':
+      case '/copyright':
         return <LegalPage navigate={navigate} />;
       default:
         return <NotFoundPage navigate={navigate} />;

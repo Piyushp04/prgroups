@@ -741,23 +741,36 @@ export const BookProjectPage: React.FC<BookProjectPageProps> = ({ navigate }) =>
                   </div>
                 </div>
 
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <button
-                    type="button"
-                    onClick={() => setStep(3)}
-                    className="btn-pill btn-pill-outline"
-                  >
-                    <ArrowLeft size={16} />
-                    <span>Back</span>
-                  </button>
-                  <button
-                    type="submit"
-                    className="btn-pill btn-pill-light"
-                    style={{ padding: '0.95rem 2.25rem' }}
-                  >
-                    <span>Transmit Project Brief</span>
-                    <Send size={16} />
-                  </button>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+                    <button
+                      type="button"
+                      onClick={() => setStep(3)}
+                      className="btn-pill btn-pill-outline"
+                    >
+                      <ArrowLeft size={16} />
+                      <span>Back</span>
+                    </button>
+                    <button
+                      type="submit"
+                      className="btn-pill btn-pill-light"
+                      style={{ padding: '0.95rem 2.25rem' }}
+                    >
+                      <span>Transmit Project Brief</span>
+                      <Send size={16} />
+                    </button>
+                  </div>
+                  <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: 1.5, textAlign: 'right', margin: 0 }}>
+                    By submitting this form, you acknowledge our{' '}
+                    <button
+                      type="button"
+                      onClick={() => navigate('/privacy')}
+                      style={{ color: 'var(--accent-cyan)', textDecoration: 'underline', background: 'none', border: 'none', cursor: 'pointer', padding: 0, font: 'inherit' }}
+                    >
+                      Privacy Policy
+                    </button>{' '}
+                    and consent to PR Groups processing your submitted details solely for responding to your enquiry and related business communications.
+                  </p>
                 </div>
               </form>
             )}
