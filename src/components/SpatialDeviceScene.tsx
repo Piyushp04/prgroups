@@ -269,6 +269,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
 
         {/* Ambient Top Screen Status Bar */}
         <div
+          className="spatial-status-bar"
           style={{
             position: 'absolute',
             top: '14px',
@@ -282,14 +283,14 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
             color: 'var(--text-secondary)',
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div className="spatial-status-brand" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: 'var(--accent-cyan)', boxShadow: '0 0 10px var(--accent-cyan)' }} />
-            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '0.02em', fontSize: '0.9rem' }}>
+            <span className="spatial-status-brand-text" style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '0.02em', fontSize: '0.9rem' }}>
               BUILDING BRANDS. CREATING IMPACT
             </span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', fontSize: '0.75rem', fontFamily: 'var(--font-mono)' }}>
+          <div className="spatial-status-meta" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', fontSize: '0.75rem', fontFamily: 'var(--font-mono)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--text-muted)' }}>
               <Activity size={13} color="var(--accent-cyan)" />
               <span>STAGE 0{currentStage} / 05</span>
