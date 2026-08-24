@@ -246,6 +246,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
 
         {/* Ambient Top Screen Notch & Camera */}
         <div
+          className="spatial-notch"
           style={{
             position: 'absolute',
             top: '12px',
@@ -269,7 +270,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
 
         {/* Ambient Top Screen Status Bar */}
         <div
-          className="spatial-status-bar"
+          className={`spatial-status-bar stage-${currentStage}-active`}
           style={{
             position: 'absolute',
             top: '14px',
@@ -283,7 +284,10 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
             color: 'var(--text-secondary)',
           }}
         >
-          <div className="spatial-status-brand" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+          <div
+            className={`spatial-status-brand ${currentStage !== 1 ? 'stage-inactive-mobile' : ''}`}
+            style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}
+          >
             <span style={{ width: '7px', height: '7px', borderRadius: '50%', backgroundColor: 'var(--accent-cyan)', boxShadow: '0 0 10px var(--accent-cyan)' }} />
             <span className="spatial-status-brand-text" style={{ fontFamily: 'var(--font-display)', fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '0.02em', fontSize: '0.9rem' }}>
               BUILDING BRANDS. CREATING IMPACT
@@ -306,6 +310,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
 
           {/* STAGE 1: HERO CRESCENT ARCH & BRAND LETTERS */}
           <div
+            className="spatial-stage-1"
             style={{
               position: 'absolute',
               inset: 0,
@@ -327,6 +332,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
 
             {/* Official Metallic Brand Emblem with Glowing Halo */}
             <div
+              className="spatial-stage-logo"
               style={{
                 width: 'clamp(72px, 10vw, 92px)',
                 height: 'clamp(72px, 10vw, 92px)',
@@ -348,6 +354,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
             </div>
 
             <h1
+              className="spatial-stage-title"
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(2.75rem, 7vw, 5.5rem)',
@@ -365,6 +372,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
             </h1>
 
             <p
+              className="spatial-stage-subtitle"
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: 'clamp(0.75rem, 1.2vw, 0.925rem)',
