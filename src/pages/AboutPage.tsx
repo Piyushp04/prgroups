@@ -86,7 +86,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigate }) => {
             }}
           >
             <img
-              src="/assets/images/office.png"
+              src="/assets/images/office.jpg"
               alt="PR Groups Studio in Bangalore"
               style={{ width: '100%', height: '320px', objectFit: 'cover', display: 'block', opacity: 0.95 }}
               onError={(e) => {
