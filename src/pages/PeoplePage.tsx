@@ -233,14 +233,24 @@ export const PeoplePage: React.FC<PeoplePageProps> = () => {
                         fontSize: '0.7rem',
                         padding: '0.2rem 0.55rem',
                         borderRadius: '999px',
-                        backgroundColor: 'rgba(255, 255, 255, 0.04)',
-                        border: '1px solid var(--border-subtle)',
-                        color: 'var(--text-muted)',
+                        backgroundColor: member.badge ? 'rgba(0, 240, 255, 0.12)' : 'rgba(255, 255, 255, 0.04)',
+                        border: member.badge ? '1px solid rgba(0, 240, 255, 0.4)' : '1px solid var(--border-subtle)',
+                        color: member.badge ? 'var(--accent-cyan)' : 'var(--text-muted)',
+                        fontWeight: member.badge ? 700 : 500,
                       }}
                     >
-                      {member.isLeadership ? 'Executive Lead' : 'Practice Specialist'}
+                      {member.badge || (member.isLeadership ? 'Executive Lead' : 'Practice Specialist')}
                     </span>
                   </div>
+
+                  {member.badge && (
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.35rem' }}>
+                      <span style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: 'var(--accent-cyan)' }} />
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--accent-cyan)', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                        {member.badge}
+                      </span>
+                    </div>
+                  )}
 
                   <h3
                     style={{

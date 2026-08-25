@@ -20,14 +20,16 @@ export const PEOPLE_DATA: TeamMember[] = [
     bio: "Leads strategic vision, creative direction, and creative-technology architecture across all active practices and client engagements.",
     location: "Bangalore, Karnataka, India",
     isLeadership: true,
+    badge: "Founder",
   },
   {
     id: "nisha-jha",
     name: "Nisha Jha",
-    role: "Studio Operations Lead",
+    role: "Co-Founder & Studio Operations Lead",
     bio: "Drives internal operational workflows, project execution quality, and collaborative studio practice delivery.",
     location: "Bangalore, Karnataka, India",
     isLeadership: true,
+    badge: "Co-Founder",
   },
   {
     id: "prerna-chaudhary",

@@ -86,9 +86,12 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigate }) => {
             }}
           >
             <img
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+              src="/assets/images/office.png"
               alt="PR Groups Studio in Bangalore"
-              style={{ width: '100%', height: '320px', objectFit: 'cover', display: 'block', opacity: 0.9 }}
+              style={{ width: '100%', height: '320px', objectFit: 'cover', display: 'block', opacity: 0.95 }}
+              onError={(e) => {
+                e.currentTarget.src = '/assets/images/studio.jpg';
+              }}
             />
             <div
               style={{

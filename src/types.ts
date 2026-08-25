@@ -67,6 +67,7 @@ export interface TeamMember {
   location: string;
   imagePlaceholder?: string;
   isLeadership?: boolean;
+  badge?: string;
 }
 
 export interface Testimonial {
