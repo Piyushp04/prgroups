@@ -40,8 +40,8 @@ export const COMPANY_INFO = {
   },
 
   grievance: {
-    officer: "Pratyush Kumar Jha",
-    designation: "Proprietor & Grievance / Privacy Officer",
+    officer: "Piyush Pathak",
+    designation: "Grievance & Privacy Officer",
     email: "Grievance@prgroups.in",
     acknowledgementSLA: "Within 48 business hours",
     resolutionSLA: "Within 30 calendar days",

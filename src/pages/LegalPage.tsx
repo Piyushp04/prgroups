@@ -569,7 +569,7 @@ export const LegalPage: React.FC<LegalPageProps> = () => {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
                   <div>
                     <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>GRIEVANCE & PRIVACY OFFICER:</span>
-                    <strong style={{ color: 'var(--text-primary)', fontSize: '0.95rem' }}>{COMPANY_INFO.grievance.officer} (Proprietor)</strong>
+                    <strong style={{ color: 'var(--text-primary)', fontSize: '0.95rem' }}>{COMPANY_INFO.grievance.officer}</strong>
                   </div>
                   <div>
                     <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem' }}>LEGAL ENTITY:</span>

@@ -387,7 +387,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
               CREATIVE TECHNOLOGY THAT COMMANDS CATEGORY LEADERSHIP
             </p>
 
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', zIndex: 5 }}>
+            <div className="spatial-stage-cta-wrap" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', zIndex: 5 }}>
               <button
                 onClick={() => onNavigate('/book-a-project')}
                 className="btn-pill btn-pill-light"
@@ -404,6 +404,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
 
           {/* STAGE 2: SPLIT FEATURE & COMPANION ENGINE */}
           <div
+            className="spatial-stage-2"
             style={{
               position: 'absolute',
               inset: 0,
@@ -420,12 +421,13 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
               transition: 'transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), filter 0.55s ease',
             }}
           >
-            <div>
+            <div className="spatial-stage-2-content">
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.85rem' }}>
                 <span className="badge-tag">ENGINE ARCHITECTURE</span>
               </div>
 
               <h2
+                className="spatial-stage-2-title"
                 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 'clamp(2rem, 3.8vw, 3rem)',
@@ -439,7 +441,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
                 Fast. Reliable. Scale.
               </h2>
 
-              <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', lineHeight: 1.65, marginBottom: '2rem' }}>
+              <p className="spatial-stage-2-desc" style={{ fontSize: '1rem', color: 'var(--text-secondary)', lineHeight: 1.65, marginBottom: '2rem' }}>
                 We architect browser-native 3D WebGL interfaces, autonomous multi-agent pipelines, and durable brand architectures for high-growth enterprises.
               </p>
 
@@ -453,8 +455,9 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
               </button>
             </div>
 
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div className="spatial-stage-2-companion" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <div
+                className="spatial-stage-2-phone"
                 style={{
                   width: '200px',
                   height: '340px',
@@ -505,6 +508,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
 
           {/* STAGE 3: INTELLIGENCE SPHERE & DISCIPLINES MATRIX */}
           <div
+            className="spatial-stage-3"
             style={{
               position: 'absolute',
               inset: 0,
@@ -522,11 +526,12 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
               transition: 'transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), filter 0.55s ease',
             }}
           >
-            <div className="energy-orb" style={{ width: '135px', height: '135px', marginBottom: '1.25rem' }}>
+            <div className="energy-orb spatial-stage-3-orb" style={{ width: '135px', height: '135px', marginBottom: '1.25rem' }}>
               <Sparkles size={36} color="var(--accent-cyan)" style={{ opacity: 0.9 }} />
             </div>
 
             <h2
+              className="spatial-stage-3-title"
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(1.75rem, 3.2vw, 2.4rem)',
@@ -537,11 +542,12 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
             >
               Data Protection & Intelligent Systems
             </h2>
-            <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', maxWidth: '560px', marginBottom: '1.75rem' }}>
+            <p className="spatial-stage-3-desc" style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', maxWidth: '560px', marginBottom: '1.75rem' }}>
               Deploying custom multi-agent pipelines, vector search topologies, and neural workflows that 10x velocity.
             </p>
 
             <div
+              className="spatial-stage-3-grid"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
@@ -557,6 +563,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
               ].map((c, i) => (
                 <div
                   key={i}
+                  className="spatial-stage-3-card"
                   style={{
                     backgroundColor: 'rgba(255, 255, 255, 0.04)',
                     border: '1px solid var(--border-subtle)',
@@ -567,8 +574,8 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
                     transition: 'transform 0.3s ease, border-color 0.3s ease',
                   }}
                 >
-                  <div style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>{c.metric}</div>
-                  <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{c.label}</div>
+                  <div className="spatial-stage-3-card-metric" style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--accent-cyan)' }}>{c.metric}</div>
+                  <div className="spatial-stage-3-card-label" style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>{c.label}</div>
                 </div>
               ))}
             </div>
@@ -576,6 +583,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
 
           {/* STAGE 4: HIGH-IMPACT METRICS & ECLIPSE RIM */}
           <div
+            className="spatial-stage-4"
             style={{
               position: 'absolute',
               inset: 0,
@@ -594,6 +602,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
             }}
           >
             <div
+              className="spatial-stage-4-glow"
               style={{
                 position: 'absolute',
                 top: '50%',
@@ -609,6 +618,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
             />
 
             <h2
+              className="spatial-stage-4-title"
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(2rem, 4.2vw, 3.25rem)',
@@ -620,11 +630,12 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
             >
               Completely Category-Defining
             </h2>
-            <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', maxWidth: '560px', marginBottom: '2.25rem' }}>
+            <p className="spatial-stage-4-desc" style={{ fontSize: '1rem', color: 'var(--text-secondary)', maxWidth: '560px', marginBottom: '2.25rem' }}>
               Closing the perception gap for ambitious tech and corporate leaders worldwide.
             </p>
 
             <div
+              className="spatial-stage-4-grid"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
@@ -633,27 +644,27 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
                 maxWidth: '700px',
               }}
             >
-              <div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--text-primary)' }}>
+              <div className="spatial-stage-4-metric">
+                <div className="spatial-stage-4-val" style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--text-primary)' }}>
                   {currency === 'INR' ? '₹1,000 Cr+' : '$120M+'}
                 </div>
-                <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+                <div className="spatial-stage-4-label" style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
                   RAISED BY CLIENTS
                 </div>
               </div>
-              <div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--accent-cyan)' }}>
+              <div className="spatial-stage-4-metric">
+                <div className="spatial-stage-4-val" style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--accent-cyan)' }}>
                   +30%
                 </div>
-                <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+                <div className="spatial-stage-4-label" style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
                   MARGIN GAIN POST-REBRAND
                 </div>
               </div>
-              <div>
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--text-primary)' }}>
+              <div className="spatial-stage-4-metric">
+                <div className="spatial-stage-4-val" style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 900, color: 'var(--text-primary)' }}>
                   2.3X
                 </div>
-                <div style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
+                <div className="spatial-stage-4-label" style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>
                   CONVERSION LIFT
                 </div>
               </div>
@@ -662,6 +673,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
 
           {/* STAGE 5: FINAL CONVERSION STAGE */}
           <div
+            className="spatial-stage-5"
             style={{
               position: 'absolute',
               inset: 0,
@@ -680,6 +692,7 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
             }}
           >
             <h2
+              className="spatial-stage-5-title"
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: 'clamp(2rem, 4vw, 3.25rem)',
@@ -694,11 +707,11 @@ export const SpatialDeviceScene: React.FC<SpatialDeviceSceneProps> = ({
               Looking for a reliable partner for your next stage of growth?
             </h2>
 
-            <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', maxWidth: '520px', marginBottom: '2.25rem' }}>
+            <p className="spatial-stage-5-desc" style={{ fontSize: '1rem', color: 'var(--text-secondary)', maxWidth: '520px', marginBottom: '2.25rem' }}>
               Direct collaboration between executive founders and dedicated multidisciplinary squads.
             </p>
 
-            <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <div className="spatial-stage-5-actions" style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', justifyContent: 'center' }}>
               <button
                 onClick={() => onNavigate('/book-a-project')}
                 className="btn-pill btn-pill-light"
