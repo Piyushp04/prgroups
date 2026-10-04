@@ -40,14 +40,6 @@ export const PEOPLE_DATA: TeamMember[] = [
     isLeadership: true,
   },
   {
-    id: "devesh-kumar-jha",
-    name: "Devesh Kumar Jha",
-    role: "Studio Finance & Commercial Operations",
-    bio: "Manages studio budgeting, commercial billing schedules, financial operations, and contract administration.",
-    location: "Bangalore, Karnataka, India",
-    isLeadership: true,
-  },
-  {
     id: "diya-pandey",
     name: "Diya Pandey",
     role: "Project Manager",
