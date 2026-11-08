@@ -297,6 +297,46 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, navigate }) => {
               )}
             </div>
 
+            {/* Showreel Navigation Link */}
+            <button
+              onClick={() => {
+                if (currentPath === '/') {
+                  const el = document.getElementById('showreel');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                } else {
+                  handleNavClick('/');
+                  setTimeout(() => {
+                    const el = document.getElementById('showreel');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }, 300);
+                }
+              }}
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: '0.875rem',
+                fontWeight: 600,
+                color: 'var(--text-primary)',
+                backgroundColor: 'transparent',
+                border: '1px solid transparent',
+                borderRadius: '9999px',
+                padding: '0.45rem 1rem',
+                cursor: 'pointer',
+                transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = 'var(--accent-cyan)';
+                e.currentTarget.style.backgroundColor = 'rgba(0, 255, 136, 0.08)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'var(--text-primary)';
+                e.currentTarget.style.backgroundColor = 'transparent';
+              }}
+            >
+              Showreel
+            </button>
+
             {/* Works Dropdown */}
             <div
               style={{ position: 'relative' }}
@@ -731,6 +771,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, navigate }) => {
             </span>
             {[
               { label: 'Home', path: '/' },
+              { label: 'Showreel', path: '/#showreel' },
               { label: 'Selected Work', path: '/work' },
               { label: 'Services & Disciplines', path: '/services' },
               { label: 'About Agency', path: '/about' },

@@ -5,12 +5,12 @@ export const FOUNDER_DATA = {
   name: "Pratyush Kumar Jha",
   title: "Founder & Sole Proprietor, PR Groups",
   headline: "BUILDING AT THE INTERSECTION OF CREATIVITY AND TECHNOLOGY.",
-  bio: "Pratyush Kumar Jha is the Founder & Sole Proprietor of PR Groups, leading a multidisciplinary creative-technology company focused on brand transformation, digital experiences, intelligent automation and emerging technology. His approach combines creative direction with technology-led thinking, with an emphasis on building distinctive systems and experiences that help ambitious businesses communicate, operate and grow in a digital-first world.",
+  bio: "Pratyush Kumar Jha is the Founder & Sole Proprietor of PR Groups, a diversified enterprise operating under PR Projects Studio. The business delivers professional services, creative solutions, products, and business operations across ten verticals in India and international markets.",
   location: "Bangalore, Karnataka, India",
   imagePlaceholder: "/assets/images/founder-placeholder.jpg",
 };
 
-export const OPERATIONAL_ROLES_DISCLAIMER = "Important: These are internal operational roles within the PR Projects Studio/PR Group’s setup and do not imply a separate partnership, LLP, corporation, or independent ownership structure. Pratyush Kumar Jha remains the sole proprietor.";
+export const OPERATIONAL_ROLES_DISCLAIMER = "Important: These are internal operational roles within PR Projects Studio / PR Groups and do not imply a separate partnership, LLP, corporation, or independent ownership structure. Pratyush Kumar Jha remains the sole proprietor.";
 
 export const PEOPLE_DATA: TeamMember[] = [
   {

@@ -148,7 +148,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               </ul>
             </div>
 
-            {/* Column 2: 6 Disciplines */}
+            {/* Column 2: Business Verticals */}
             <div>
               <span
                 style={{
@@ -162,7 +162,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
                   marginBottom: '1.25rem',
                 }}
               >
-                6 DISCIPLINES
+                BUSINESS VERTICALS
               </span>
               <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
                 {DISCIPLINES.map((discipline) => (
@@ -252,7 +252,7 @@ export const Footer: React.FC<FooterProps> = ({ navigate }) => {
               Public Brand: <strong style={{ color: 'var(--text-primary)' }}>{COMPANY_INFO.brandName}</strong>
             </p>
             <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
-              Founder & Sole Proprietor: <strong style={{ color: 'var(--text-primary)' }}>{COMPANY_INFO.founderAndCEO}</strong>
+              Founder & Sole Proprietor: <strong style={{ color: 'var(--text-primary)' }}>{COMPANY_INFO.founderName}</strong>
             </p>
             <p style={{ fontSize: '0.8125rem', color: 'var(--text-muted)', marginTop: '0.25rem' }}>
               Operational Studio: {COMPANY_INFO.studioOffice.address}

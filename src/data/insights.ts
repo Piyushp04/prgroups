@@ -9,7 +9,7 @@ export const INSIGHTS: InsightArticle[] = [
     date: "August 2025",
     author: {
       name: "Pratyush Kumar Jha",
-      role: "Founder & CEO, PR Groups"
+      role: "Founder & Sole Proprietor, PR Groups"
     },
     summary: "As computing interfaces transition from 2D pixel grids into spatial dimensions, modern enterprises that leverage WebGL, WebGPU, and real-time 3D storytelling are establishing unassailable moat advantages in customer engagement.",
     takeaways: [
@@ -31,7 +31,7 @@ export const INSIGHTS: InsightArticle[] = [
     date: "July 2025",
     author: {
       name: "Pratyush Kumar Jha",
-      role: "Founder & CEO, PR Groups"
+      role: "Founder & Sole Proprietor, PR Groups"
     },
     summary: "How PR Groups integrates custom multi-agent LLMs, automated code generation, and generative asset workflows to deliver enterprise solutions in weeks rather than quarters.",
     takeaways: [
@@ -53,7 +53,7 @@ export const INSIGHTS: InsightArticle[] = [
     date: "June 2025",
     author: {
       name: "Pratyush Kumar Jha",
-      role: "Founder & CEO, PR Groups"
+      role: "Founder & Sole Proprietor, PR Groups"
     },
     summary: "Why superficial visual redesigns fail and how first-principles brand engineering creates lasting enterprise value across physical, digital, and synthetic mediums.",
     takeaways: [

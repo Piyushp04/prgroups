@@ -1,7 +1,8 @@
 export const COMPANY_INFO = {
   brandName: "PR Groups",
-  legalEntity: "PR Project's Studio, a Sole Proprietorship",
-  founderAndCEO: "Pratyush Kumar Jha",
+  legalEntity: "PR Projects Studio",
+  legalStructure: "Sole Proprietorship",
+  founderName: "Pratyush Kumar Jha",
   founderRole: "Founder & Sole Proprietor",
   domain: "prgroups.in",
   
@@ -17,7 +18,7 @@ export const COMPANY_INFO = {
   
   registeredOffice: {
     label: "Registered Entity & GST Jurisdiction",
-    entity: "PR Project's Studio, a Sole Proprietorship",
+    entity: "PR Projects Studio",
     proprietor: "Pratyush Kumar Jha",
     pin: "846001",
     city: "Darbhanga",
@@ -49,7 +50,7 @@ export const COMPANY_INFO = {
 
   disclaimer: {
     bestEffortNote: "Note: All services are delivered on a best-effort basis. No specific reach, impressions, engagement, followers, conversions, revenue, search ranking, or ad ROAS is guaranteed. Results may vary due to audience behaviour, market dynamics, platform algorithms (Meta, Google, YouTube, TikTok), and third-party policies. Past results do not constitute a guarantee of future performance.",
-    operationalRolesNote: "Important: All team titles designate internal operational leadership functions within the PR Project's Studio / PR Groups setup and do not imply a separate partnership, LLP, corporation, board of directors, or statutory corporate office structure. Pratyush Kumar Jha remains the sole proprietor.",
+    operationalRolesNote: "Important: All team titles designate internal operational leadership functions within PR Projects Studio / PR Groups and do not imply a separate partnership, LLP, corporation, board of directors, or statutory corporate office structure. Pratyush Kumar Jha remains the sole proprietor.",
     noGuaranteedMetrics: "PR Groups does not guarantee Instagram followers, viral reach, lead volume, search rank, sales conversion, or advertising ROAS.",
     thirdPartyPlatformAutonomy: "Outcomes depend on independent platform algorithms (Meta, Google, YouTube, TikTok) and external user behavior beyond agency control.",
     noProfessionalAdvice: "Site content does not constitute legal, tax, financial, or regulatory counsel.",
@@ -73,58 +74,58 @@ export const COMPANY_INFO = {
   },
 
   hero: {
-    label: "CREATIVE TECHNOLOGY / BRAND / DIGITAL / AI",
+    label: "SERVICES / CREATIVE SOLUTIONS / PRODUCTS / OPERATIONS",
     headline: "WE CREATE WHAT COMES NEXT.",
-    subtext: "PR Groups brings strategy, design, technology and intelligent systems together to build brands and digital experiences designed for a changing world.",
+    subtext: "PR Groups is a diversified enterprise delivering professional services, creative solutions, products, and business operations across industries in India and international markets.",
     primaryCta: { text: "BOOK A PROJECT", path: "/book-a-project" },
     secondaryCta: { text: "EXPLORE OUR WORK", path: "/work" },
   },
 
   positioning: {
-    headline: "WE BUILD BRANDS, DIGITAL EXPERIENCES AND INTELLIGENT SYSTEMS THAT MOVE BUSINESS FORWARD.",
-    body: "PR Groups combines creative thinking, digital technology and intelligent systems to help ambitious businesses build stronger identities, better experiences and more connected digital ecosystems.",
+    headline: "A DIVERSIFIED ENTERPRISE OF SERVICES, CREATIVE SOLUTIONS, PRODUCTS AND BUSINESS OPERATIONS.",
+    body: "Operating under PR Projects Studio, PR Groups brings professional services, creative solutions, products, and business operations together across ten business verticals in India and international markets.",
   },
 
   bangaloreStudio: {
-    headline: "ENGINEERED IN BANGALORE. EXECUTED GLOBALLY.",
-    body: "PR Groups operates from Bangalore, working directly with founders and executive teams across India, North America, Europe, and Southeast Asia. We assemble senior, multidisciplinary teams across brand strategy, 3D Web engineering, custom AI pipelines, and communications to take critical initiatives from concept to production.",
+    headline: "OPERATING ACROSS INDIA AND INTERNATIONAL MARKETS.",
+    body: "PR Groups operates across India and international markets through a multidisciplinary portfolio spanning marketing, media, creative and digital solutions, construction, products, travel, consulting, and events.",
   },
 
   pillars: [
     {
-      id: "brand",
-      title: "Strategy & Brand Architecture",
-      desc: "Creating durable brand systems that command category authority and resonate across digital and physical touchpoints.",
-      metric: "100%",
-      metricLabel: "Bespoke Systems"
+      id: "professional-services",
+      title: "Professional Services",
+      desc: "Marketing, media, consulting, travel, construction, and event services for clients and organizations.",
+      metric: "10",
+      metricLabel: "Business Verticals"
     },
     {
-      id: "digital",
-      title: "Digital Experience & 3D Web",
-      desc: "Building high-performance web platforms, spatial 3D interfaces, and web applications engineered for seamless conversion.",
-      metric: "60 FPS",
-      metricLabel: "Browser Performance"
+      id: "creative-solutions",
+      title: "Creative Solutions",
+      desc: "Creative, digital, media, design, and content solutions spanning multiple industries.",
+      metric: "India",
+      metricLabel: "Primary Market"
     },
     {
-      id: "ai",
-      title: "AI & Automation Pipelines",
-      desc: "Deploying custom multi-agent workflows, data pipelines, and internal tools that scale operational velocity.",
-      metric: "10x",
-      metricLabel: "Workflow Velocity"
-    },
-    {
-      id: "pr-growth",
-      title: "Growth & Global Outreach",
-      desc: "Executing targeted distribution, performance growth funnels, and narrative PR that secure market share.",
+      id: "products",
+      title: "Products",
+      desc: "Art, handicrafts, apparel, merchandise, print, and gifting products.",
       metric: "Global",
       metricLabel: "Market Reach"
+    },
+    {
+      id: "business-operations",
+      title: "Business Operations",
+      desc: "Business development, project management, research, and operational support.",
+      metric: "PR Groups",
+      metricLabel: "Trade Name"
     }
   ],
 
   metrics: [
-    { value: "06", label: "Core Disciplines" },
-    { value: "Bangalore", label: "Engineering Office" },
-    { value: "Global", label: "Client Engagements" },
-    { value: "100%", label: "Direct Senior Delivery" }
+    { value: "10", label: "Business Verticals" },
+    { value: "India", label: "Domestic Market" },
+    { value: "International", label: "Markets Served" },
+    { value: "Sole", label: "Proprietorship" }
   ]
 };

@@ -2,188 +2,149 @@ import { Discipline } from '../types';
 
 export const DISCIPLINES: Discipline[] = [
   {
-    id: "strategy-brand",
-    number: "01",
-    title: "Strategy & Brand",
-    tagline: "Foundational identity systems built for category leadership",
-    description: "We engineer brand identities from first principles — defining strategic positioning, bespoke visual languages, kinetic typography, and comprehensive design governance systems that outlast industry cycles.",
+    id: 'marketing-public-relations',
+    number: '01',
+    title: 'Marketing & Public Relations',
+    tagline: 'Marketing, media relations, and campaign management',
+    description: 'We help organizations build visibility and connect with audiences through integrated marketing, public relations, creator partnerships, and campaigns.',
     serviceList: [
-      "Brand Strategy",
-      "Brand Identity",
-      "Creative Direction",
-      "Positioning",
-      "Campaign Strategy"
+      'Digital Marketing',
+      'Social Media Management',
+      'Public Relations & Media Outreach',
+      'Advertising & Brand Promotion',
+      'Influencer & Creator Management',
+      'Political Campaign Management',
+      'Performance Marketing',
     ],
-    capabilities: [
-      "Market Landscape & White-space Audits",
-      "Bespoke Variable Typography & Identity Guidelines",
-      "Master Design Token Registries",
-      "Packaging & Environmental Spatial Touchpoints",
-      "Executive Narrative & Brand Architecture"
-    ],
-    stack: [
-      "Figma", "Glyphs 3", "Adobe Creative Cloud", "Cinema 4D", "Design Tokens"
-    ],
-    deliverables: [
-      "Master Brand Guidelines & Vector Systems",
-      "Interactive Digital Token Library",
-      "Multi-platform Marketing Collateral",
-      "Corporate Stationery & Physical Guidelines"
-    ]
   },
   {
-    id: "digital-experience",
-    number: "02",
-    title: "Digital Experience",
-    tagline: "High-performance interactive web and spatial 3D platforms",
-    description: "We design and build flagship web platforms, interactive 3D environments, and web applications that combine aesthetic precision with micro-optimized speed and flawless responsiveness.",
+    id: 'news-media',
+    number: '02',
+    title: 'News & Media',
+    tagline: 'News reporting, publishing, and media production',
+    description: 'Our news and media operations cover digital journalism, channel production, publishing, and broadcasting.',
     serviceList: [
-      "Web Design",
-      "UI/UX",
-      "Web Development",
-      "3D Websites",
-      "Interactive Experiences",
-      "E-commerce"
+      'Digital News & Media',
+      'News Channel & Media Production',
+      'Journalism & News Reporting',
+      'Media Publishing & Broadcasting',
     ],
-    capabilities: [
-      "Flagship Enterprise Web Platforms",
-      "WebGL & Three.js 60 FPS Interactive Environments",
-      "Full-stack Web Applications & Microfrontends",
-      "Headless CMS Architecture & APIs",
-      "Micro-interactions & Precision Motion Design"
-    ],
-    stack: [
-      "React", "TypeScript", "Three.js / WebGL", "Vanilla CSS", "Node.js", "Vite"
-    ],
-    deliverables: [
-      "Production-ready Web Applications",
-      "Interactive 3D Showcases & Configurators",
-      "High-converting Landing Architecture",
-      "Full Source Repositories & CI/CD Pipelines"
-    ]
   },
   {
-    id: "ai-automation",
-    number: "03",
-    title: "AI & Automation",
-    tagline: "Autonomous pipelines, LLM agents, and workflow automation",
-    description: "We architect intelligent systems that transform operations — from custom multi-agent LLM pipelines and automated knowledge extraction to real-time generative workflows and algorithmic decision engines.",
+    id: 'creative-digital-solutions',
+    number: '03',
+    title: 'Creative & Digital Solutions',
+    tagline: 'Creative production and digital experiences',
+    description: 'We bring together visual communication, content production, web development, user experience, and AI-enabled solutions.',
     serviceList: [
-      "AI Strategy",
-      "AI Automation",
-      "AI Agents",
-      "Workflow Automation",
-      "Business Process Automation",
-      "AI Integrations"
+      'Graphic Design & Branding',
+      'Video Production & Editing',
+      'Photography & Content Creation',
+      'Website Design & Development',
+      'UI/UX Design',
+      'AI Solutions & Automation',
     ],
-    capabilities: [
-      "Custom Enterprise AI & LLM Integration",
-      "Autonomous Multi-Agent Tooling & Orchestration",
-      "Generative Asset & Content Workflows",
-      "Vector Knowledge Graphs (RAG) & Semantic Search",
-      "Automated Operational API Pipelines"
-    ],
-    stack: [
-      "Python", "LangChain / LlamaIndex", "PyTorch", "OpenAI / Claude / Gemini API", "Vector DBs", "Docker"
-    ],
-    deliverables: [
-      "Deployed Multi-Agent Workflows",
-      "Fine-tuned Context Engines & Knowledge Hubs",
-      "Automated Processing Pipelines",
-      "Telemetry & Analytics Dashboards"
-    ]
   },
   {
-    id: "growth",
-    number: "04",
-    title: "Growth",
-    tagline: "Data-driven acquisition and omni-channel scale",
-    description: "We unify creative storytelling with quantitative distribution — executing high-conversion performance marketing campaigns, conversion rate optimization, and paid acquisition funnels that scale enterprise revenue.",
+    id: 'construction-civil-works',
+    number: '04',
+    title: 'Construction & Civil Works',
+    tagline: 'Construction, infrastructure, and property improvements',
+    description: 'We support residential, commercial, and infrastructure projects, from construction and contracting to interiors and renovation.',
     serviceList: [
-      "Digital Marketing",
-      "Social Media",
-      "SEO",
-      "Performance Marketing",
-      "Influencer Campaigns",
-      "Lead Generation"
+      'Civil Construction',
+      'Residential & Commercial Construction',
+      'Infrastructure Development',
+      'Interior & Finishing Works',
+      'Renovation & Remodeling',
+      'Construction Contracting',
     ],
-    capabilities: [
-      "Full-funnel Performance Media Buying",
-      "Creative Concept Testing & Rapid Iteration",
-      "Conversion Rate Optimization (CRO)",
-      "Attribution Modeling & Custom Analytics",
-      "Organic Search & Editorial Dominance"
-    ],
-    stack: [
-      "Google Ads / Meta Ads", "GA4 / Segment", "Mixpanel", "Programmatic DSPs", "Search Console"
-    ],
-    deliverables: [
-      "Multi-channel Paid Campaign Infrastructure",
-      "Creative Ad Variant Matrix",
-      "Real-time ROI Performance Dashboards",
-      "Conversion Optimization Audit Reports"
-    ]
   },
   {
-    id: "content-motion",
-    number: "05",
-    title: "Content & Motion",
-    tagline: "Photorealistic 3D visual effects and cinematic motion",
-    description: "We craft visual stories that transcend the physical — producing photorealistic CGI renders, automotive/industrial animations, product films, and spatial computing environments that captivate global audiences.",
+    id: 'art-handicrafts-handmade-products',
+    number: '05',
+    title: 'Art, Handicrafts & Handmade Products',
+    tagline: 'Fine art, traditional craft, and made-to-order work',
+    description: 'We create and offer fine art, traditional Mithila work, handmade products, commissioned artwork, and handcrafted gifts and décor.',
     serviceList: [
-      "CGI",
-      "VFX",
-      "3D Visualisation",
-      "Motion Graphics",
-      "AI Visuals",
-      "Video Production"
+      'Fine Art & Paintings',
+      'Mithila & Traditional Art',
+      'Handmade Crafts & Products',
+      'Custom & Commissioned Artwork',
+      'Handcrafted Décor & Gifts',
     ],
-    capabilities: [
-      "Photorealistic Product & Hardware CGI",
-      "Cinematic VFX & Motion Graphics Films",
-      "Architectural Visualization & Virtual Environments",
-      "Real-time Unreal Engine / Unity Renders",
-      "Houdini Procedural Visual Effects"
-    ],
-    stack: [
-      "Unreal Engine 5", "Blender", "Cinema 4D / Redshift", "Houdini", "After Effects", "DaVinci Resolve"
-    ],
-    deliverables: [
-      "Ultra HD 4K/8K Video Masters",
-      "3D Asset Libraries for Spatial Platforms",
-      "Broadcast-ready Commercial Spots",
-      "Interactive 3D Product Viewers"
-    ]
   },
   {
-    id: "pr-outreach",
-    number: "06",
-    title: "PR & Outreach",
-    tagline: "Reputation architecture and tier-one press distribution",
-    description: "We architect high-impact narratives that position leaders and enterprises at the forefront of their industries — securing premier editorial coverage, crisis management, and industry-defining announcements.",
+    id: 'fashion-apparel-clothing',
+    number: '06',
+    title: 'Fashion, Apparel & Clothing',
+    tagline: 'Apparel design, production, sourcing, and distribution',
+    description: 'We work across clothing brands and apparel, including design, manufacturing, private label, custom uniforms, sourcing, and distribution.',
     serviceList: [
-      "Public Relations",
-      "Digital PR",
-      "Media Strategy",
-      "Influencer Relations",
-      "Brand Outreach",
-      "Campaign Communications"
+      'Clothing Brand Development',
+      'Apparel Design & Manufacturing',
+      'Private Label Clothing',
+      'Streetwear & Lifestyle Fashion',
+      'Custom Apparel & Uniforms',
+      'Fashion Sourcing & Distribution',
     ],
-    capabilities: [
-      "Global Tier-1 Media Relations & Press",
-      "Executive Narrative & Thought Leadership",
-      "Product Launch & Funding Press Cycles",
-      "Crisis Communications & Brand Protection",
-      "Keynote & Industry Summit Positioning"
+  },
+  {
+    id: 'merchandise-printing-corporate-gifting',
+    number: '07',
+    title: 'Merchandise, Printing & Corporate Gifting',
+    tagline: 'Branded merchandise, print, and gifting',
+    description: 'We provide customized merchandise, branded products, printing and packaging, and personalized gifts for organizations and events.',
+    serviceList: [
+      'Customized Merchandise',
+      'Corporate & Promotional Products',
+      'Branded Apparel & Accessories',
+      'Printing & Packaging',
+      'Corporate Gifting',
+      'Personalized Products & Souvenirs',
     ],
-    stack: [
-      "Global Media Network", "MuckRack", "Cision", "Editorial Syndication", "Wire Services"
+  },
+  {
+    id: 'travel-tourism-hospitality',
+    number: '08',
+    title: 'Travel, Tourism & Hospitality',
+    tagline: 'Travel planning, tours, and hospitality reservations',
+    description: 'We coordinate travel planning and tour operations for domestic and international destinations, along with corporate travel and hospitality reservations.',
+    serviceList: [
+      'Domestic & International Tourism',
+      'Tour & Holiday Packages',
+      'Travel Planning & Management',
+      'Inbound & Outbound Tour Operations',
+      'Corporate Travel Services',
+      'Hotel & Hospitality Reservations',
     ],
-    deliverables: [
-      "Press Kits & Embargoed Media Packages",
-      "Tier-1 Feature Placements & Op-eds",
-      "Media Briefings & Speaking Engagements",
-      "Sentiment & Coverage Intelligence Reports"
-    ]
-  }
+  },
+  {
+    id: 'business-consulting-management',
+    number: '09',
+    title: 'Business Consulting & Management',
+    tagline: 'Strategy, development, research, and operational support',
+    description: 'We support businesses with strategy and development, project management, market research, and operational and management support.',
+    serviceList: [
+      'Business Strategy & Consulting',
+      'Business Development',
+      'Project Management',
+      'Market Research',
+      'Operational & Management Support',
+    ],
+  },
+  {
+    id: 'events-entertainment',
+    number: '10',
+    title: 'Events & Entertainment',
+    tagline: 'Event delivery, talent management, and promotion',
+    description: 'We plan and produce events, exhibitions, brand activations, and entertainment programs, with talent management and event marketing.',
+    serviceList: [
+      'Event Planning & Management',
+      'Corporate Events & Exhibitions',
+      'Brand Activations & Promotions',
+      'Artist & Talent Management',
+      'Event Production & Marketing',
+    ],
+  },
 ];

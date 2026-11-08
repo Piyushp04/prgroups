@@ -1,15 +1,75 @@
 import React, { useEffect, useState } from 'react';
-import { X, Volume2, VolumeX, Play, Pause, Sparkles, ArrowUpRight } from 'lucide-react';
+import { X, Volume2, VolumeX, Play, Pause, ArrowUpRight } from 'lucide-react';
 
 interface ShowreelModalProps {
   isOpen: boolean;
   onClose: () => void;
   navigate: (path: string) => void;
+  initialReelTitle?: string;
 }
 
-export const ShowreelModal: React.FC<ShowreelModalProps> = ({ isOpen, onClose, navigate }) => {
+interface ModalReel {
+  id: string;
+  title: string;
+  category: string;
+  image: string;
+  duration: string;
+  specs: string;
+  description: string;
+}
+
+export const ShowreelModal: React.FC<ShowreelModalProps> = ({
+  isOpen,
+  onClose,
+  navigate,
+  initialReelTitle,
+}) => {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
+  const [activeReelIndex, setActiveReelIndex] = useState(0);
+
+  const reelsList: ModalReel[] = [
+    {
+      id: 'master',
+      title: 'PR GROUPS MASTER PRODUCTION FILM',
+      category: 'CULTURAL LUXURY & HERITAGE',
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1600&q=85',
+      duration: '01:45',
+      specs: '4K UHD • 60 FPS • DOLBY ATMOS',
+      description: 'Comprehensive brand film capturing the soul, craftsmanship, and timeless elegance of heritage luxury reimagined for modern global audiences.',
+    },
+    {
+      id: 'devotional',
+      title: 'PR GROUPS DEVOTIONAL & HERITAGE FILM',
+      category: 'SACRED CRAFT & TRADITION',
+      image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1600&q=85',
+      duration: '02:10',
+      specs: '4K 60FPS • CUSTOM SCORE • SACRED HERITAGE',
+      description: 'A visually reverent piece honoring craft, heritage, and devotion through dramatic chiaroscuro lighting and an emotive original devotional score.',
+    },
+    {
+      id: 'fashion',
+      title: 'PR GROUPS COMMERCIAL & COUTURE REEL',
+      category: 'HIGH-FASHION & EDITORIAL',
+      image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1600&q=85',
+      duration: '01:15',
+      specs: '4K UHD • RAPID PACING • HIGH FASHION',
+      description: 'Fashion-forward commercial film blending high-fashion aesthetics, rapid choreography, dynamic pacing, and editorial color mastering.',
+    },
+  ];
+
+  useEffect(() => {
+    if (initialReelTitle) {
+      const idx = reelsList.findIndex((r) =>
+        r.title.toLowerCase().includes(initialReelTitle.toLowerCase())
+      );
+      if (idx !== -1) {
+        setActiveReelIndex(idx);
+      }
+    }
+  }, [initialReelTitle]);
+
+  const currentReel = reelsList[activeReelIndex] || reelsList[0];
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -37,14 +97,14 @@ export const ShowreelModal: React.FC<ShowreelModalProps> = ({ isOpen, onClose, n
         position: 'fixed',
         inset: 0,
         zIndex: 1000,
-        backgroundColor: 'rgba(5, 5, 7, 0.88)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
+        backgroundColor: 'rgba(3, 3, 5, 0.94)',
+        backdropFilter: 'blur(24px)',
+        WebkitBackdropFilter: 'blur(24px)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         padding: 'clamp(1rem, 3vw, 2.5rem)',
-        animation: 'fadeIn 0.3s ease-out forwards',
+        animation: 'fadeIn 0.25s ease-out forwards',
       }}
       role="dialog"
       aria-modal="true"
@@ -53,12 +113,12 @@ export const ShowreelModal: React.FC<ShowreelModalProps> = ({ isOpen, onClose, n
       <div
         style={{
           width: '100%',
-          maxWidth: '1080px',
-          backgroundColor: '#0c0c10',
-          border: '1px solid var(--border-medium)',
+          maxWidth: '1100px',
+          backgroundColor: '#0a0a0e',
+          border: '1px solid rgba(255, 255, 255, 0.12)',
           borderRadius: '24px',
           overflow: 'hidden',
-          boxShadow: '0 30px 80px rgba(0, 0, 0, 0.8)',
+          boxShadow: '0 30px 90px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 255, 136, 0.15)',
           position: 'relative',
           display: 'flex',
           flexDirection: 'column',
@@ -68,22 +128,30 @@ export const ShowreelModal: React.FC<ShowreelModalProps> = ({ isOpen, onClose, n
         {/* Header Bar */}
         <div
           style={{
-            padding: '1.25rem 1.75rem',
-            borderBottom: '1px solid var(--border-subtle)',
+            padding: '1.15rem 1.75rem',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            backgroundColor: 'rgba(12, 12, 16, 0.95)',
+            backgroundColor: '#07070a',
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-            <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--accent-cyan)' }} />
-            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1rem', color: 'var(--text-primary)' }}>
-              PR Groups — 2026 Studio Reel
+            <span
+              style={{
+                width: '8px',
+                height: '8px',
+                borderRadius: '50%',
+                backgroundColor: 'var(--accent-cyan)',
+                boxShadow: '0 0 10px var(--accent-cyan)',
+              }}
+            />
+            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '0.95rem', color: '#ffffff' }}>
+              {currentReel.title}
             </span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
             <button
               onClick={() => setIsMuted(!isMuted)}
               style={{
@@ -93,19 +161,31 @@ export const ShowreelModal: React.FC<ShowreelModalProps> = ({ isOpen, onClose, n
                 padding: '0.4rem 0.85rem',
                 borderRadius: '9999px',
                 backgroundColor: 'rgba(255, 255, 255, 0.06)',
-                border: '1px solid var(--border-subtle)',
-                color: 'var(--text-primary)',
-                fontSize: '0.8rem',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                color: '#ffffff',
+                fontSize: '0.78rem',
+                fontFamily: 'var(--font-mono)',
+                cursor: 'pointer',
               }}
             >
-              {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} />}
+              {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} color="var(--accent-cyan)" />}
               <span>{isMuted ? 'Muted' : 'Spatial Audio'}</span>
             </button>
 
             <button
               onClick={onClose}
-              className="btn-circle"
-              style={{ width: '36px', height: '36px' }}
+              style={{
+                width: '36px',
+                height: '36px',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                color: '#ffffff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+              }}
               aria-label="Close showreel"
             >
               <X size={18} />
@@ -119,111 +199,136 @@ export const ShowreelModal: React.FC<ShowreelModalProps> = ({ isOpen, onClose, n
             position: 'relative',
             width: '100%',
             aspectRatio: '16 / 9',
-            backgroundColor: '#040406',
+            backgroundColor: '#000000',
             overflow: 'hidden',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}
         >
-          {/* Ambient Video Simulation / Motion Canvas */}
+          {/* Main Cinematic Visual Frame */}
+          <img
+            src={currentReel.image}
+            alt={currentReel.title}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              filter: isPlaying ? 'brightness(0.85) contrast(1.1)' : 'brightness(0.55)',
+              transform: isPlaying ? 'scale(1.02)' : 'scale(1)',
+              transition: 'all 0.6s ease',
+            }}
+          />
+
+          {/* Vignette Gradients */}
           <div
             style={{
               position: 'absolute',
               inset: 0,
-              background: 'radial-gradient(circle at center, rgba(0, 229, 255, 0.15) 0%, rgba(5,5,7,0.95) 75%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%, rgba(0,0,0,0.5) 100%)',
+              pointerEvents: 'none',
+            }}
+          />
+
+          {/* Reel Central Overlay Content */}
+          <div
+            style={{
+              position: 'relative',
+              zIndex: 3,
+              textAlign: 'center',
+              padding: '2rem',
+              maxWidth: '680px',
             }}
           >
             <div
               style={{
-                width: '100%',
-                height: '100%',
-                backgroundImage: 'radial-gradient(rgba(245, 242, 236, 0.08) 1px, transparent 1px)',
-                backgroundSize: '24px 24px',
-                position: 'absolute',
-                inset: 0,
-                opacity: 0.6,
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                padding: '0.35rem 0.9rem',
+                borderRadius: '9999px',
+                backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                border: '1px solid rgba(0, 255, 136, 0.35)',
+                backdropFilter: 'blur(10px)',
+                marginBottom: '1rem',
               }}
-            />
-
-            {/* Reel Central Dynamic Graphic */}
-            <div style={{ textAlign: 'center', zIndex: 2, padding: '2rem' }}>
-              <div
+            >
+              <span
                 style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.4rem 1rem',
-                  borderRadius: '9999px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                  backdropFilter: 'blur(8px)',
-                  marginBottom: '1.25rem',
+                  width: '6px',
+                  height: '6px',
+                  borderRadius: '50%',
+                  backgroundColor: 'var(--accent-cyan)',
                 }}
-              >
-                <Sparkles size={14} color="var(--accent-cyan)" />
-                <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-primary)' }}>
-                  Interactive Showreel Experience
-                </span>
-              </div>
-
-              <h2
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)',
-                  fontWeight: 800,
-                  letterSpacing: '-0.03em',
-                  color: 'var(--text-primary)',
-                  marginBottom: '0.75rem',
-                  maxWidth: '650px',
-                }}
-              >
-                Shaping the digital presence that commands category leadership.
-              </h2>
-              <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', maxWidth: '500px', margin: '0 auto 1.5rem auto' }}>
-                Featuring high-impact commissions across Strategy, 3D Web, AI Platforms, and Creative Direction.
-              </p>
-
-              {/* Play / Pause Interactive Floating Button */}
-              <button
-                onClick={() => setIsPlaying(!isPlaying)}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                  padding: '0.75rem 1.75rem',
-                  borderRadius: '9999px',
-                  backgroundColor: '#ffffff',
-                  color: '#070709',
-                  fontWeight: 600,
-                  fontSize: '0.9rem',
-                  boxShadow: '0 8px 30px rgba(255, 255, 255, 0.3)',
-                  transition: 'transform var(--transition-fast)',
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.04)')}
-                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-              >
-                {isPlaying ? <Pause size={16} /> : <Play size={16} />}
-                <span>{isPlaying ? 'Pause Reel' : 'Resume Showreel'}</span>
-              </button>
+              />
+              <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--accent-cyan)' }}>
+                {currentReel.category}
+              </span>
             </div>
+
+            <h2
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)',
+                fontWeight: 900,
+                letterSpacing: '-0.025em',
+                color: '#ffffff',
+                marginBottom: '0.75rem',
+                textShadow: '0 4px 20px rgba(0,0,0,0.8)',
+              }}
+            >
+              {currentReel.title}
+            </h2>
+
+            <p style={{ fontSize: '0.925rem', color: 'rgba(255, 255, 255, 0.85)', lineHeight: 1.5, marginBottom: '1.5rem', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+              {currentReel.description}
+            </p>
+
+            {/* Play / Pause Toggle Button */}
+            <button
+              onClick={() => setIsPlaying(!isPlaying)}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.65rem',
+                padding: '0.85rem 2rem',
+                borderRadius: '9999px',
+                backgroundColor: '#ffffff',
+                color: '#000000',
+                fontWeight: 800,
+                fontSize: '0.825rem',
+                fontFamily: 'var(--font-display)',
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: '0 8px 30px rgba(255, 255, 255, 0.35)',
+                transition: 'transform 0.2s ease',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.04)')}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+            >
+              {isPlaying ? <Pause size={15} fill="#000" /> : <Play size={15} fill="#000" />}
+              <span>{isPlaying ? 'PAUSE REEL' : 'RESUME PLAYBACK'}</span>
+            </button>
           </div>
 
           {/* Equalizer Visualizer overlay */}
           <div
             style={{
               position: 'absolute',
-              bottom: '1.5rem',
+              bottom: '1.25rem',
               left: '1.5rem',
               display: 'flex',
               alignItems: 'center',
-              gap: '0.75rem',
-              backgroundColor: 'rgba(0, 0, 0, 0.65)',
-              padding: '0.5rem 1rem',
+              gap: '0.65rem',
+              backgroundColor: 'rgba(0, 0, 0, 0.75)',
+              padding: '0.4rem 0.85rem',
               borderRadius: '9999px',
-              backdropFilter: 'blur(8px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              backdropFilter: 'blur(10px)',
               zIndex: 3,
             }}
           >
@@ -234,31 +339,88 @@ export const ShowreelModal: React.FC<ShowreelModalProps> = ({ isOpen, onClose, n
               <span className="eq-bar" />
               <span className="eq-bar" />
             </div>
-            <span style={{ fontSize: '0.75rem', fontFamily: 'var(--font-mono)', color: 'var(--text-secondary)' }}>
-              4K 60FPS MASTER
+            <span style={{ fontSize: '0.72rem', fontFamily: 'var(--font-mono)', color: 'var(--accent-cyan)' }}>
+              {currentReel.specs}
             </span>
           </div>
+
+          {/* Duration Badge Bottom Right */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '1.25rem',
+              right: '1.5rem',
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.75rem',
+              color: '#ffffff',
+              backgroundColor: 'rgba(0,0,0,0.75)',
+              padding: '0.4rem 0.85rem',
+              borderRadius: '9999px',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              zIndex: 3,
+            }}
+          >
+            {currentReel.duration}
+          </div>
+        </div>
+
+        {/* Film Switcher Bar */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            padding: '0.75rem 1.75rem',
+            backgroundColor: '#0e0e14',
+            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+            overflowX: 'auto',
+          }}
+        >
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginRight: '0.5rem', whiteSpace: 'nowrap' }}>
+            SELECT FILM:
+          </span>
+          {reelsList.map((r, idx) => (
+            <button
+              key={r.id}
+              onClick={() => setActiveReelIndex(idx)}
+              style={{
+                padding: '0.45rem 0.95rem',
+                borderRadius: '999px',
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.72rem',
+                fontWeight: 700,
+                whiteSpace: 'nowrap',
+                backgroundColor: activeReelIndex === idx ? 'var(--accent-cyan)' : 'rgba(255, 255, 255, 0.04)',
+                color: activeReelIndex === idx ? '#000000' : 'var(--text-secondary)',
+                border: activeReelIndex === idx ? '1px solid var(--accent-cyan)' : '1px solid rgba(255, 255, 255, 0.08)',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+              }}
+            >
+              {r.id.toUpperCase()} // {r.category}
+            </button>
+          ))}
         </div>
 
         {/* Footer info & CTA */}
         <div
           style={{
-            padding: '1.5rem 2rem',
-            backgroundColor: '#09090d',
+            padding: '1.25rem 1.75rem',
+            backgroundColor: '#07070a',
             display: 'flex',
             flexWrap: 'wrap',
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: '1rem',
-            borderTop: '1px solid var(--border-subtle)',
+            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
           }}
         >
           <div>
-            <div style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-primary)' }}>
-              Ready to elevate your company's brand & digital perception?
+            <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#ffffff' }}>
+              Ready to commission a commercial, brand film or 3D campaign?
             </div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-              We partner directly with founder and executive teams worldwide.
+            <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+              Direct senior execution by PR Groups specialists across India and international markets.
             </div>
           </div>
 
@@ -268,10 +430,19 @@ export const ShowreelModal: React.FC<ShowreelModalProps> = ({ isOpen, onClose, n
                 onClose();
                 navigate('/work');
               }}
-              className="btn-pill btn-pill-outline"
-              style={{ padding: '0.65rem 1.25rem', fontSize: '0.85rem' }}
+              style={{
+                backgroundColor: 'transparent',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                color: '#ffffff',
+                padding: '0.65rem 1.25rem',
+                borderRadius: '9999px',
+                fontSize: '0.8rem',
+                fontWeight: 700,
+                fontFamily: 'var(--font-display)',
+                cursor: 'pointer',
+              }}
             >
-              <span>Explore Work</span>
+              <span>EXPLORE WORK</span>
             </button>
 
             <button
@@ -279,11 +450,23 @@ export const ShowreelModal: React.FC<ShowreelModalProps> = ({ isOpen, onClose, n
                 onClose();
                 navigate('/book-a-project');
               }}
-              className="btn-pill btn-pill-light"
-              style={{ padding: '0.65rem 1.35rem', fontSize: '0.85rem' }}
+              style={{
+                backgroundColor: '#ffffff',
+                border: 'none',
+                color: '#000000',
+                padding: '0.65rem 1.35rem',
+                borderRadius: '9999px',
+                fontSize: '0.8rem',
+                fontWeight: 800,
+                fontFamily: 'var(--font-display)',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+              }}
             >
-              <span>Book Strategy Call</span>
-              <ArrowUpRight size={15} />
+              <span>START A PROJECT</span>
+              <ArrowUpRight size={14} />
             </button>
           </div>
         </div>

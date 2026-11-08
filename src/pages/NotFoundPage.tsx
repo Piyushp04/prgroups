@@ -32,7 +32,7 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ navigate }) => {
           }}
         >
           404
-        </div>
+        </div> 
 
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
           <Compass size={16} color="var(--accent-cyan)" />

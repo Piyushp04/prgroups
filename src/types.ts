@@ -54,9 +54,6 @@ export interface Discipline {
   tagline: string;
   description: string;
   serviceList: string[];
-  capabilities: string[];
-  stack: string[];
-  deliverables: string[];
 }
 
 export interface TeamMember {

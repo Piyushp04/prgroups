@@ -31,11 +31,11 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigate }) => {
               color: 'var(--text-primary)',
             }}
           >
-            CREATIVE STRATEGY.<br />
-            INTELLIGENT SYSTEMS.
+            DIVERSE VERTICALS.<br />
+            ONE ENTERPRISE.
           </h1>
           <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', maxWidth: '780px', lineHeight: 1.65 }}>
-            PR Groups brings strategy, design, technology and intelligent systems together to help ambitious businesses build stronger identities, better experiences and more connected digital ecosystems.
+            PR Groups, operating under PR Projects Studio, is a diversified enterprise delivering professional services, creative solutions, products, and business operations across multiple industries.
           </p>
         </div>
 
@@ -60,17 +60,17 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigate }) => {
                 lineHeight: 1.15,
               }}
             >
-              STRUCTURED AS A COMPANY, NOT A FREELANCE COLLECTIVE.
+              A DIVERSIFIED ENTERPRISE OPERATING ACROSS INDUSTRIES.
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', fontSize: '1.05rem', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
               <p>
-                PR Groups operates as a unified multidisciplinary company headquartered in Bangalore. We do not operate as solo freelancers or fragmented sub-contractors. We assemble dedicated squads across brand strategy, 3D Web engineering, custom AI automation, and communications.
+                PR Groups operates under PR Projects Studio as a sole proprietorship founded by Pratyush Kumar Jha. The enterprise brings professional services, creative solutions, products, and business operations together across ten business verticals.
               </p>
               <p>
-                Under the leadership of Founder & CEO <strong>Pratyush Kumar Jha</strong>, our team works directly with founders and enterprise executives to solve high-stakes product and brand challenges.
+                Founder & Sole Proprietor <strong>Pratyush Kumar Jha</strong> leads the business, serving clients and customers across India and international markets.
               </p>
               <p>
-                Whether architecting a generative design system, building 60 FPS WebGL experiences, or deploying multi-agent LLM pipelines, we deliver production-ready assets and systems designed for long-term category durability.
+                Our work spans marketing and media, creative and digital solutions, construction, arts and handmade products, fashion, merchandise, travel, business consulting, and events and entertainment.
               </p>
             </div>
           </div>
@@ -289,6 +289,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigate }) => {
                   <strong style={{ color: 'var(--text-primary)' }}>{COMPANY_INFO.legalEntity}</strong>
                 </div>
                 <div>
+                  <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem', fontFamily: 'var(--font-mono)' }}>LEGAL STRUCTURE</span>
+                  <span style={{ color: 'var(--text-secondary)' }}>{COMPANY_INFO.legalStructure}</span>
+                </div>
+                <div>
                   <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '0.75rem', fontFamily: 'var(--font-mono)' }}>OFFICE LOCATION</span>
                   <span style={{ color: 'var(--text-secondary)' }}>{COMPANY_INFO.studioOffice.address}</span>
                 </div>
@@ -306,4 +310,3 @@ export const AboutPage: React.FC<AboutPageProps> = ({ navigate }) => {
     </div>
   );
 };
-

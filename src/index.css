@@ -8,32 +8,32 @@
 
 :root {
   /* Studio Base Dark Theme */
-  --bg-primary: #050508;
-  --bg-studio: #08080d;
-  --bg-surface: #0f0f18;
-  --bg-surface-elevated: #161624;
-  --bg-card: rgba(15, 15, 24, 0.75);
-  --bg-pill-light: #ece8e1;
-  --bg-pill-light-hover: #ffffff;
-  --bg-pill-dark: #12121c;
+  --bg-primary: #050505;
+  --bg-studio: #080808;
+  --bg-surface: #0e0e11;
+  --bg-surface-elevated: #141418;
+  --bg-card: rgba(14, 14, 18, 0.82);
+  --bg-pill-light: #ffffff;
+  --bg-pill-light-hover: #f0fdf4;
+  --bg-pill-dark: #0d0d12;
 
-  --text-primary: #f5f2ec;       /* Warm Alabaster */
-  --text-secondary: #a09c94;     /* Muted Stone */
-  --text-muted: #66635d;         /* Deep Warm Grey */
-  --text-dark: #070709;          /* Contrast Dark */
+  --text-primary: #ffffff;       /* Crisp White */
+  --text-secondary: #9ca3af;     /* Refined Grey */
+  --text-muted: #6b7280;         /* Deep Muted */
+  --text-dark: #000000;          /* Pure Dark */
 
-  /* Default Neon Glow Theme: Luxury Electric Amethyst / Royal Purple (Default #1) */
-  --accent-cyan: #c77dff;        /* Neon Amethyst Purple */
-  --accent-blue: #9d4edd;        /* Electric Violet */
-  --accent-violet: #7b2cbf;      /* Deep Amethyst Aura */
-  --accent-glow-primary: rgba(199, 125, 255, 0.55);
-  --accent-glow-secondary: rgba(157, 78, 221, 0.45);
-  --accent-glow-tertiary: rgba(123, 44, 191, 0.35);
+  /* Default Neon Mint / Emerald Theme matching viyana.productions */
+  --accent-cyan: #00ff88;        /* Vivid Neon Mint / Emerald */
+  --accent-blue: #00f5d4;        /* Electric Cyan Mint */
+  --accent-violet: #10b981;      /* Deep Emerald */
+  --accent-glow-primary: rgba(0, 255, 136, 0.45);
+  --accent-glow-secondary: rgba(0, 245, 212, 0.35);
+  --accent-glow-tertiary: rgba(16, 185, 129, 0.25);
 
-  --border-subtle: rgba(245, 242, 236, 0.08);
-  --border-medium: rgba(245, 242, 236, 0.16);
-  --border-strong: rgba(245, 242, 236, 0.35);
-  --border-glow: rgba(199, 125, 255, 0.45);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-strong: rgba(255, 255, 255, 0.35);
+  --border-glow: rgba(0, 255, 136, 0.4);
 
   /* Typography */
   --font-display: 'Satoshi', 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

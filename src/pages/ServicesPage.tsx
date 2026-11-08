@@ -2,7 +2,7 @@ import React from 'react';
 import { DISCIPLINES } from '../data/disciplines';
 import { RATE_CARD_MODULES, CELEBRATION_OFFER_INFO } from '../data/rateCard';
 import { useCurrency } from '../utils/currency';
-import { ArrowUpRight, Check, Cpu, Layers, Sparkles, Flame } from 'lucide-react';
+import { ArrowUpRight, Check, Layers, Flame } from 'lucide-react';
 
 interface ServicesPageProps {
   navigate: (path: string) => void;
@@ -20,7 +20,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ navigate }) => {
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
             <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--accent-cyan)' }} />
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.1em' }}>
-              CORE PRACTICES
+              BUSINESS VERTICALS
             </span>
           </div>
           <h1
@@ -34,10 +34,10 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ navigate }) => {
               color: 'var(--text-primary)',
             }}
           >
-            THE 6 CORE DISCIPLINES.
+            OUR 10 BUSINESS VERTICALS.
           </h1>
           <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', maxWidth: '780px', lineHeight: 1.65 }}>
-            PR Groups bridges the divide between strategic creative direction and software engineering. We operate across 6 practices designed to build category-defining companies.
+            PR Groups is a diversified enterprise delivering professional services, creative solutions, products, and business operations across ten verticals in India and international markets.
           </p>
         </div>
 
@@ -117,67 +117,33 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ navigate }) => {
                 {discipline.description}
               </p>
 
-              {/* Capabilities & Deliverables Grid */}
+              {/* Services offered */}
               <div
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                  gap: '2rem',
+                  backgroundColor: 'rgba(255, 255, 255, 0.025)',
+                  padding: '1.75rem',
+                  borderRadius: '20px',
+                  border: '1px solid var(--border-subtle)',
                   marginBottom: '2.5rem',
                 }}
               >
-                {/* Core Capabilities */}
-                <div
-                  style={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.025)',
-                    padding: '1.75rem',
-                    borderRadius: '20px',
-                    border: '1px solid var(--border-subtle)',
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-                    <Layers size={15} color="var(--accent-cyan)" />
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase' }}>
-                      PRACTICE CAPABILITIES
-                    </span>
-                  </div>
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                    {discipline.capabilities.map((cap, idx) => (
-                      <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.9rem', color: 'var(--text-primary)' }}>
-                        <Check size={14} color="var(--accent-cyan)" />
-                        <span>{cap}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+                  <Layers size={15} color="var(--accent-cyan)" />
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase' }}>
+                    SERVICES
+                  </span>
                 </div>
-
-                {/* Deliverables */}
-                <div
-                  style={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.025)',
-                    padding: '1.75rem',
-                    borderRadius: '20px',
-                    border: '1px solid var(--border-subtle)',
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-                    <Sparkles size={15} color="var(--accent-cyan)" />
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase' }}>
-                      DELIVERABLES
-                    </span>
-                  </div>
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
-                    {discipline.deliverables.map((del, idx) => (
-                      <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                        <span style={{ color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)', fontWeight: 700 }}>•</span>
-                        <span>{del}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul style={{ listStyle: 'none', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '0.85rem 1.5rem' }}>
+                  {discipline.serviceList.map((service) => (
+                    <li key={service} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.9rem', color: 'var(--text-primary)' }}>
+                      <Check size={14} color="var(--accent-cyan)" />
+                      <span>{service}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Tooling & Trigger */}
+              {/* Booking action */}
               <div
                 style={{
                   display: 'flex',
@@ -189,27 +155,12 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ navigate }) => {
                   borderTop: '1px solid var(--border-subtle)',
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <Cpu size={15} color="var(--text-muted)" />
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-muted)', marginRight: '0.5rem' }}>
-                    STACK:
-                  </span>
-                  {discipline.stack.map((st) => (
-                    <span
-                      key={st}
-                      className="badge-tag"
-                    >
-                      {st}
-                    </span>
-                  ))}
-                </div>
-
                 <button
                   onClick={() => navigate('/book-a-project')}
                   className="btn-pill btn-pill-light"
                   style={{ padding: '0.75rem 1.75rem', fontSize: '0.875rem' }}
                 >
-                  <span>Engage Practice</span>
+                  <span>Discuss This Vertical</span>
                   <ArrowUpRight size={15} />
                 </button>
               </div>
@@ -638,4 +589,3 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ navigate }) => {
     </div>
   );
 };
-

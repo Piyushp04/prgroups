@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { CASE_STUDIES } from '../data/caseStudies';
 import { CaseStudyModal } from '../components/CaseStudyModal';
+import { ShowreelModal } from '../components/ShowreelModal';
 import { CaseStudy } from '../types';
-import { ArrowUpRight, MapPin, Phone } from 'lucide-react';
+import { ArrowUpRight, MapPin, Phone, Play } from 'lucide-react';
 
 interface WorkPageProps {
   navigate: (path: string) => void;
@@ -11,6 +12,7 @@ interface WorkPageProps {
 export const WorkPage: React.FC<WorkPageProps> = ({ navigate }) => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
+  const [showreelOpen, setShowreelOpen] = useState(false);
 
   const filters = [
     { id: 'all', label: `All Case Studies (${CASE_STUDIES.length})` },
@@ -92,6 +94,58 @@ export const WorkPage: React.FC<WorkPageProps> = ({ navigate }) => {
           <p style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
             Explore our verified client transformations across India, Europe, Japan, and the Middle East—taking traditional offline businesses from zero digital footprint to verified search ranking, viral commercial media, and high-ROI revenue channels.
           </p>
+        </div>
+
+        {/* Interactive Showreel Banner */}
+        <div
+          style={{
+            backgroundColor: 'rgba(12, 12, 16, 0.85)',
+            border: '1px solid rgba(0, 255, 136, 0.25)',
+            borderRadius: '20px',
+            padding: '1.5rem 2rem',
+            marginBottom: '3rem',
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '1.5rem',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <div
+              style={{
+                width: '44px',
+                height: '44px',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(0, 255, 136, 0.1)',
+                border: '1px solid rgba(0, 255, 136, 0.3)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+              }}
+            >
+              <Play size={18} color="var(--accent-cyan)" fill="var(--accent-cyan)" style={{ marginLeft: '2px' }} />
+            </div>
+            <div>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--accent-cyan)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                4K STUDIO SHOWREEL & CULTURAL FILMS
+              </span>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.25rem', fontWeight: 800, color: '#ffffff' }}>
+                Watch our flagship commercials, 9:16 vertical series & cultural brand films
+              </h3>
+            </div>
+          </div>
+
+          <button
+            onClick={() => setShowreelOpen(true)}
+            className="btn-pill btn-pill-light"
+            style={{ fontSize: '0.8rem', padding: '0.65rem 1.35rem', fontWeight: 800 }}
+          >
+            <span>WATCH 4K REEL</span>
+            <ArrowUpRight size={14} />
+          </button>
         </div>
 
         {/* Filter Bar with Smooth Expanding Glow Pills */}
@@ -312,6 +366,13 @@ export const WorkPage: React.FC<WorkPageProps> = ({ navigate }) => {
             navigate={navigate}
           />
         )}
+
+        {/* 4K Studio Showreel Modal */}
+        <ShowreelModal
+          isOpen={showreelOpen}
+          onClose={() => setShowreelOpen(false)}
+          navigate={navigate}
+        />
 
       </div>
     </div>

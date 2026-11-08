@@ -157,7 +157,7 @@ export const LegalPage: React.FC<LegalPageProps> = () => {
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-muted)', display: 'block', marginBottom: '0.25rem' }}>
                 FOUNDER & SOLE PROPRIETOR
               </span>
-              <strong style={{ color: 'var(--text-primary)', fontSize: '0.95rem' }}>{COMPANY_INFO.founderAndCEO}</strong>
+              <strong style={{ color: 'var(--text-primary)', fontSize: '0.95rem' }}>{COMPANY_INFO.founderName}</strong>
             </div>
 
             <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.02)', padding: '1.15rem', borderRadius: '14px', border: '1px solid var(--border-subtle)' }}>
@@ -735,4 +735,3 @@ export const LegalPage: React.FC<LegalPageProps> = () => {
     </div>
   );
 };
-

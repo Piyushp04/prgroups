@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DISCIPLINES } from '../data/disciplines';
-import { Check, ArrowUpRight, Cpu, Layers } from 'lucide-react';
+import { Check, ArrowUpRight, Layers } from 'lucide-react';
 
 interface InteractiveServiceMatrixProps {
   onSelectDisciplineForBooking?: (disciplineId: string) => void;
@@ -55,12 +55,12 @@ export const InteractiveServiceMatrix: React.FC<InteractiveServiceMatrixProps> =
               color: 'var(--text-primary)',
             }}
           >
-            THE 6 CORE DISCIPLINES
+            TEN BUSINESS VERTICALS
           </h3>
         </div>
 
         <p style={{ maxWidth: '460px', fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-          Select a practice to inspect foundational capabilities, technical engineering stack, and guaranteed delivery outcomes.
+          Select a vertical to explore the services PR Groups offers across its diversified business.
         </p>
       </div>
 
@@ -146,7 +146,7 @@ export const InteractiveServiceMatrix: React.FC<InteractiveServiceMatrixProps> =
           {/* Practice Number */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--accent-cyan)', fontWeight: 700 }}>
-              DISCIPLINE {activeDiscipline.number}
+              VERTICAL {activeDiscipline.number}
             </span>
           </div>
 
@@ -178,18 +178,18 @@ export const InteractiveServiceMatrix: React.FC<InteractiveServiceMatrixProps> =
             {activeDiscipline.description}
           </p>
 
-          {/* Capabilities List */}
+          {/* Services List */}
           <div style={{ marginBottom: '2rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
               <Layers size={15} color="var(--accent-cyan)" />
               <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                Core Capabilities
+                Services
               </span>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.75rem' }}>
-              {activeDiscipline.capabilities.map((cap, idx) => (
+              {activeDiscipline.serviceList.map((service) => (
                 <div
-                  key={idx}
+                  key={service}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -199,28 +199,8 @@ export const InteractiveServiceMatrix: React.FC<InteractiveServiceMatrixProps> =
                   }}
                 >
                   <Check size={14} color="var(--accent-cyan)" />
-                  <span>{cap}</span>
+                  <span>{service}</span>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Stack Badges */}
-          <div style={{ marginBottom: '2.5rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-              <Cpu size={15} color="var(--accent-cyan)" />
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                Tooling & Technical Stack
-              </span>
-            </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-              {activeDiscipline.stack.map((item) => (
-                <span
-                  key={item}
-                  className="badge-tag"
-                >
-                  {item}
-                </span>
               ))}
             </div>
           </div>
@@ -248,7 +228,7 @@ export const InteractiveServiceMatrix: React.FC<InteractiveServiceMatrixProps> =
                   cursor: 'pointer',
                 }}
               >
-                View Case Studies in this Discipline →
+                View Case Studies →
               </button>
             )}
 
@@ -257,7 +237,7 @@ export const InteractiveServiceMatrix: React.FC<InteractiveServiceMatrixProps> =
               className="btn-pill btn-pill-light"
               style={{ padding: '0.75rem 1.65rem', fontSize: '0.875rem' }}
             >
-              <span>Commission This Practice</span>
+              <span>Discuss This Vertical</span>
               <ArrowUpRight size={15} />
             </button>
           </div>
@@ -267,4 +247,3 @@ export const InteractiveServiceMatrix: React.FC<InteractiveServiceMatrixProps> =
     </div>
   );
 };
-

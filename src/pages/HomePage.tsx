@@ -4,6 +4,10 @@ import { DISCIPLINES } from '../data/disciplines';
 import { RATE_CARD_MODULES, CELEBRATION_OFFER_INFO } from '../data/rateCard';
 import { CaseStudyModal } from '../components/CaseStudyModal';
 import { ArticleModal } from '../components/ArticleModal';
+import { ShowreelModal } from '../components/ShowreelModal';
+import { CinematicHeroBanner } from '../components/CinematicHeroBanner';
+import { FlagshipReelsShowcase } from '../components/FlagshipReelsShowcase';
+import { InvertedUnforgettableSection } from '../components/InvertedUnforgettableSection';
 import { SpatialDeviceScene } from '../components/SpatialDeviceScene';
 import { ThreeHeroScene } from '../components/ThreeHeroScene';
 import { InstagramReelPhone } from '../components/InstagramReelPhone';
@@ -13,7 +17,6 @@ import {
   ArrowUpRight,
   ArrowRight,
   Check,
-  Cpu,
   Layers,
   Volume2,
   Flame
@@ -26,9 +29,16 @@ interface HomePageProps {
 export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudy | null>(null);
   const [selectedArticle, setSelectedArticle] = useState<InsightArticle | null>(null);
+  const [showreelOpen, setShowreelOpen] = useState(false);
+  const [activeShowreelTitle, setActiveShowreelTitle] = useState<string | undefined>(undefined);
   const [activeDisciplineTab, setActiveDisciplineTab] = useState(DISCIPLINES[0].id);
   const [selectedWorkFilter, setSelectedWorkFilter] = useState('ALL');
   const [currency, setCurrency] = useCurrency();
+
+  const handleOpenShowreel = (title?: string) => {
+    setActiveShowreelTitle(title);
+    setShowreelOpen(true);
+  };
 
   const activeDiscipline = DISCIPLINES.find((d) => d.id === activeDisciplineTab) || DISCIPLINES[0];
 
@@ -73,28 +83,27 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
       <ThreeHeroScene />
 
       {/* =========================================================================
-          1. 3D SPATIAL DEVICE HERO SHOWCASE
+          1. CINEMATIC HERO BANNER (VISUALS INTO BRANDS - matching Screenshot 1)
           ========================================================================= */}
-      <section
-        style={{
-          position: 'relative',
-          minHeight: 'calc(100vh - var(--header-height))',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          paddingTop: 'calc(var(--header-height) + 1.25rem)',
-          paddingBottom: '2.5rem',
-          zIndex: 5,
-        }}
-        aria-label="3D Spatial Showcase"
-      >
-        <div className="container" style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <SpatialDeviceScene
-            onNavigate={navigate}
-          />
-        </div>
-      </section>
+      <CinematicHeroBanner
+        onNavigate={navigate}
+        onOpenShowreel={handleOpenShowreel}
+      />
+
+      {/* =========================================================================
+          2. FLAGSHIP & CULTURAL REELS SHOWCASE (matching Screenshot 1 & 2)
+          ========================================================================= */}
+      <FlagshipReelsShowcase
+        onNavigate={navigate}
+        onOpenShowreel={handleOpenShowreel}
+      />
+
+      {/* =========================================================================
+          3. INVERTED CONTRAST SECTION (LET'S CREATE SOMETHING UNFORGETTABLE - matching Screenshot 3)
+          ========================================================================= */}
+      <InvertedUnforgettableSection
+        onNavigate={navigate}
+      />
 
       {/* Marquee Ticker Bar with Continuous Smooth Scroll */}
       <div className="marquee-ticker" style={{ position: 'relative', zIndex: 10 }} aria-hidden="true">
@@ -125,6 +134,52 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
           </div>
         </div>
       </div>
+
+      {/* =========================================================================
+          4. 3D SPATIAL DEVICE & INTERACTIVE BRAND EXPERIENCE
+          ========================================================================= */}
+      <section
+        style={{
+          position: 'relative',
+          minHeight: '85vh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          paddingTop: '3.5rem',
+          paddingBottom: '3.5rem',
+          zIndex: 5,
+        }}
+        aria-label="3D Spatial Showcase"
+      >
+        <div className="container" style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <div
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                backgroundColor: 'rgba(0, 255, 136, 0.08)',
+                border: '1px solid rgba(0, 255, 136, 0.3)',
+                padding: '0.3rem 0.9rem',
+                borderRadius: '999px',
+                marginBottom: '0.75rem',
+              }}
+            >
+              <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--accent-cyan)' }} />
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--accent-cyan)', fontWeight: 700, letterSpacing: '0.08em' }}>
+                SPATIAL 3D COMPUTING & INTERFACE LAB
+              </span>
+            </div>
+            <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', fontWeight: 800, color: '#ffffff' }}>
+              Interactive 3D Hardware & Systems Engine
+            </h3>
+          </div>
+          <SpatialDeviceScene
+            onNavigate={navigate}
+          />
+        </div>
+      </section>
 
       {/* =========================================================================
           2. NARRATIVE SECTION: "• Who we are" / The Perception Gap
@@ -181,7 +236,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                         marginBottom: '2rem',
                       }}
                     >
-                      We distill your company's core ambition into category-defining digital presence and 3D web experiences.
+                      PR Groups brings professional services, creative solutions, products, and business operations together across a diverse range of industries.
                     </p>
                   </div>
 
@@ -199,7 +254,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                     </h3>
 
                     <p style={{ fontSize: '1rem', lineHeight: 1.7, color: 'var(--text-secondary)', marginBottom: '1.75rem' }}>
-                      We find the exact pressure points between how you operate and how the market perceives you. Every brand architecture, 3D WebGL platform, and AI automation engine is engineered to cut through noise and command market leadership.
+                      We find the exact pressure points between how you operate and how the market perceives you.                       Across ten business verticals, we support clients with services and solutions shaped around their needs, in India and international markets.
                     </p>
 
                     <div>
@@ -811,10 +866,10 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                     marginBottom: '0.85rem',
                   }}
                 >
-                  Unified multidisciplinary capability under one roof
+                  Ten business verticals, one diversified enterprise
                 </h2>
                 <p style={{ fontSize: '1.0625rem', color: 'var(--text-secondary)' }}>
-                  We bridge the divide between brand strategy, high-fidelity engineering, 3D WebGL, and custom AI automation.
+                  Explore professional services, creative solutions, products, and business operations offered across India and international markets.
                 </p>
               </div>
 
@@ -847,7 +902,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
               >
                 <div style={{ marginBottom: '2rem' }}>
                   <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--accent-cyan)', fontWeight: 700 }}>
-                    PRACTICE {activeDiscipline.number}
+                    VERTICAL {activeDiscipline.number}
                   </span>
                   <h3
                     style={{
@@ -879,48 +934,22 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                     marginBottom: '2rem',
                   }}
                 >
-                  {/* Capabilities */}
-                  <div>
+                  {/* Services offered */}
+                  <div style={{ gridColumn: '1 / -1' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
                       <Layers size={16} color="var(--accent-cyan)" />
                       <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)' }}>
-                        Core Capabilities
+                        Services
                       </span>
                     </div>
-                    <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                      {activeDiscipline.capabilities.map((cap, idx) => (
-                        <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.9rem', color: 'var(--text-primary)' }}>
+                    <ul style={{ listStyle: 'none', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.75rem 1.5rem' }}>
+                      {activeDiscipline.serviceList.map((service) => (
+                        <li key={service} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.9rem', color: 'var(--text-primary)' }}>
                           <Check size={14} color="var(--accent-cyan)" />
-                          <span>{cap}</span>
+                          <span>{service}</span>
                         </li>
                       ))}
                     </ul>
-                  </div>
-
-                  {/* Stack & Deliverables */}
-                  <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-                      <Cpu size={16} color="var(--accent-cyan)" />
-                      <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-primary)' }}>
-                        Technology & Tooling
-                      </span>
-                    </div>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem', marginBottom: '1.5rem' }}>
-                      {activeDiscipline.stack.map((st) => (
-                        <span key={st} className="badge-tag">
-                          {st}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                      <span style={{ fontSize: '0.85rem', fontWeight: 500, color: 'var(--text-primary)' }}>
-                        Deliverables
-                      </span>
-                    </div>
-                    <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                      {activeDiscipline.deliverables.join(' • ')}
-                    </p>
                   </div>
                 </div>
 
@@ -930,7 +959,7 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
                     className="btn-pill btn-pill-light"
                     style={{ fontSize: '0.875rem' }}
                   >
-                    <span>Commission This Practice</span>
+                    <span>Discuss This Vertical</span>
                     <ArrowUpRight size={15} />
                   </button>
                   <button
@@ -1032,7 +1061,14 @@ export const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
         />
       )}
 
+      {/* Cinematic Showreel Modal */}
+      <ShowreelModal
+        isOpen={showreelOpen}
+        onClose={() => setShowreelOpen(false)}
+        navigate={navigate}
+        initialReelTitle={activeShowreelTitle}
+      />
+
     </div>
   );
 };
-
